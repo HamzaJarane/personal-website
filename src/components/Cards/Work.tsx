@@ -5,7 +5,7 @@ import { works } from '@/helpers/getWork';
 
 function Work() {
     return (
-        <div css={tw`pt-[60px]`}>
+        <div css={tw`pt-[100px] sm:pt-[60px]`}>
             <CardTitle>
                 Work.
             </CardTitle>

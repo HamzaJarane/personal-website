@@ -21,7 +21,7 @@ export const CardTitle = styled.div`
 `;
 
 export const ProfileImage = styled.img`
-    ${tw`rounded w-[190px]`}
+    ${tw`rounded ring ring-white w-[190px]`}
 `;
 
 export const FullName = styled.div`
