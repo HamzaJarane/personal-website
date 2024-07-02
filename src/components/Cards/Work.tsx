@@ -19,7 +19,7 @@ function Work() {
                     >
                         <div>
                             <img 
-                                css={tw`min-w-full lg:h-[120px] lg:min-w-[240px] lg:max-w-[240px] rounded border border-white`}
+                                css={tw`lg:min-w-[240px] lg:max-w-[240px] rounded border border-white`}
                                 src={work.image} 
                                 alt={work.name} 
                                 srcSet={work.image} 
@@ -39,7 +39,7 @@ function Work() {
                                 dangerouslySetInnerHTML={{ __html: work.description }}
                             />
                             <ul
-                                css={tw`mt-2 flex space-x-1 items-center`}
+                                css={tw`mt-2 grid grid-cols-2 gap-1 space-y-1 lg:space-y-0 lg:flex items-center`}
                             >
                                 {work.languages.map(lang => (
                                     <li

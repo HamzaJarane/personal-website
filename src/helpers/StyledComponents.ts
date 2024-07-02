@@ -110,7 +110,7 @@ export const ExperienceTimeLine = styled.div`
     }
 
     & .eSkills {
-        ${tw`space-y-2 lg:space-y-0 lg:flex lg:space-x-2`}
+        ${tw`grid grid-cols-2 items-center gap-1 lg:max-w-full lg:flex`}
     }
 
     & .eSkill {
@@ -127,26 +127,26 @@ export const WorkContainer = styled.div`
 `;
 
 export const WorkRow = styled.a`
-    ${tw`p-3 rounded space-y-2 sm:flex sm:space-y-0 sm:space-x-4 max-w-[90%] text-white transition-all ease-in-out duration-200`}
+    ${tw`p-3 rounded space-y-2 lg:flex lg:space-y-0 lg:space-x-4 max-w-[90%] text-white transition-all ease-in-out duration-200`}
 
     &:hover {
-        ${tw`sm:bg-white`}
+        ${tw`lg:bg-white`}
         transform: scale(0.99);
 
         & img {
-            ${tw`sm:border-black`}
+            ${tw`lg:border-black`}
         }
 
         & .wName {
-            ${tw`sm:text-black`}
+            ${tw`lg:text-black`}
         }
     
         & .wDescription {
-            ${tw`sm:text-black`}
+            ${tw`lg:text-black`}
         }
 
         & .wLang {
-            ${tw`sm:bg-black sm:text-white`}
+            ${tw`lg:bg-black lg:text-white`}
         }
     }
 `;

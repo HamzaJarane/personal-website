@@ -1,8 +1,7 @@
 import rancyImage from '@/assets/images/works/rancy.png';
 import cyyc12Image from '@/assets/images/works/cyyc12.png'
-import walkincity from '@/assets/images/works/walkincity.png'
-import amiininox from '@/assets/images/works/amiininox.png'
-import paulromhosting from '@/assets/images/works/paulromhosting.png'
+import walkincity from '@/assets/images/works/walkincity.png';
+import paulromhosting from '@/assets/images/works/paulromhosting.png';
 
 interface IWork {
     name: string;
@@ -19,13 +18,6 @@ export const works: IWork[] = [
         image: rancyImage,
         description: 'Freelance project for RancyHotels where I worked on main site (WordPress) and booking dashboard (Laravel and filament).',
         languages: ['WordPress', 'Laravel', 'Filament', 'Livewire', 'OOP', 'Tailwind CSS', 'CMI'],
-    },
-    {
-        name: 'Amiininox',
-        link: 'https://amiininox.com',
-        image: amiininox,
-        description: 'Freelance project for amiininox where I worked on the site with WordPress (they wanted that design) and the email system.',
-        languages: ['WordPress', 'MailU'],
     },
     {
         name: 'PaulromHosting',
