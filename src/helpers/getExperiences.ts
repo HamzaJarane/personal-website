@@ -20,7 +20,7 @@ export const experiences: IExperience[] = [
             link: 'https://greyweb.cloud',
         },
         place: 'Russia, Moscow',
-        type: 'Freelance / Remote',
+        type: 'Remote / Freelance',
 
         from: '2024 / April',
         to: 'Present',
@@ -35,7 +35,7 @@ export const experiences: IExperience[] = [
             link: 'https://ajicod.com',
         },
         place: 'Agadir, Morocco',
-        type: 'Remote / Self-employed',
+        type: 'Remote / Paid per project',
 
         from: '2023',
         to: 'Present',

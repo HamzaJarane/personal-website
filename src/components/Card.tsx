@@ -4,6 +4,8 @@ import tw from 'twin.macro';
 import AboutMe from '@/components/Cards/AboutMe';
 import Experience from '@/components/Cards/Experience';
 import Work from '@/components/Cards/Work';
+import Footer from '@/components/Cards/Footer';
+
 
 function Card() {
     return (
@@ -11,6 +13,7 @@ function Card() {
             <AboutMe />
             <Experience />
             <Work />
+            <Footer />
         </div>
     )
 }
