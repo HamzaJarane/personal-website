@@ -16,19 +16,33 @@ export const experiences: IExperience[] = [
     {
         role: 'Full Stack Developer',
         company: {
+            name: 'GreyWeb',
+            link: 'https://greyweb.cloud',
+        },
+        place: 'Russia, Moscow',
+        type: 'Freelance / Remote',
+
+        from: '2024 / April',
+        to: 'Present',
+
+        description: 'A Web / Servers / GameServers hosting solution in <strong>Russia</strong>.',
+        skills: ['Figma', 'Laravel', 'Filament', 'Vue.JS', 'Gitlab', 'Docker']
+    },
+    {
+        role: 'Full Stack Developer',
+        company: {
             name: 'AjiCod',
             link: 'https://ajicod.com',
         },
         place: 'Agadir, Morocco',
-        type: 'Remote',
+        type: 'Remote / Self-employed',
 
         from: '2023',
         to: 'Present',
 
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora exercitationem alias, ipsum unde minima quam iusto ea libero voluptatum amet? Maxime laborum doloremque explicabo suscipit eaque? Distinctio rerum voluptatibus fugiat.',
-        skills: ['Figma', 'Long tes']
+        description: 'A digital marketing agencey based on agadir, known now as <strong>DigitalBaba</strong>.',
+        skills: ['Figma', 'CloudPanel', 'CI/CD', 'Mailu', 'Laravel', 'Filament', 'Next.JS', 'Express.JS']
     },
-
 
     // {
     //     role: '',

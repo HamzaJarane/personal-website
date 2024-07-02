@@ -41,9 +41,10 @@ function Experience() {
                                 </div>
                             </div>
 
-                            <div className={'eDescription'}>
-                                {experience.description}
-                            </div>
+                            <div 
+                                className={'eDescription'}
+                                dangerouslySetInnerHTML={{ __html: experience.description }}    
+                            />
 
                             <ul className={'eSkills'}>
                                 {experience.skills.map(skill => 

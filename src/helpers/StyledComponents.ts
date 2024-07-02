@@ -21,7 +21,7 @@ export const CardTitle = styled.div`
 `;
 
 export const ProfileImage = styled.img`
-    ${tw`rounded ring ring-white w-[190px]`}
+    ${tw`rounded ring ring-black w-[190px]`}
 `;
 
 export const FullName = styled.div`
@@ -53,9 +53,9 @@ export const ExperienceTimeLine = styled.div`
     
     & .eHero-1 {
         ${tw`
-            max-w-[90%]
-            flex 
-            flex-row 
+            lg:flex 
+            lg:flex-row 
+            lg:gap-x-9
             justify-between
             items-start
 
@@ -91,7 +91,7 @@ export const ExperienceTimeLine = styled.div`
     }
 
     & .eHero-2 {
-        ${tw`flex justify-between max-w-[90%]`}
+        ${tw`lg:flex lg:justify-between`}
 
         & a {
             ${tw`font-medium text-xl text-white mb-1 sm:mb-0`}
@@ -106,15 +106,15 @@ export const ExperienceTimeLine = styled.div`
     }
 
     & .eDescription {
-        ${tw` font-light text-white max-w-[90%]`}
+        ${tw` font-light text-white`}
     }
 
     & .eSkills {
-        ${tw`flex space-x-2`}
+        ${tw`space-y-2 lg:space-y-0 lg:flex lg:space-x-2`}
     }
 
     & .eSkill {
-        ${tw`bg-white rounded-2xl text-sm text-black `}
+        ${tw`bg-white rounded-2xl text-sm text-black`}
 
         & div {
             ${tw`py-1 px-2`}
@@ -127,10 +127,11 @@ export const WorkContainer = styled.div`
 `;
 
 export const WorkRow = styled.a`
-    ${tw`p-3 rounded space-y-2 sm:flex sm:space-y-0 sm:space-x-4 justify-between max-w-[90%] text-white transition-all ease-in-out duration-200`}
+    ${tw`p-3 rounded space-y-2 sm:flex sm:space-y-0 sm:space-x-4 max-w-[90%] text-white transition-all ease-in-out duration-200`}
 
     &:hover {
         ${tw`sm:bg-white`}
+        transform: scale(0.99);
 
         & img {
             ${tw`sm:border-black`}

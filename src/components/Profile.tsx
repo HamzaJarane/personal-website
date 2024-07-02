@@ -11,9 +11,9 @@ function Profile() {
 
     return (
         data && <>
-            <img src={profileImage} css={tw`fixed -top-2 z-10 sm:flex hidden sm:w-[30%]`} alt={"profileImage"} srcSet={profileImage} />
+            <img src={profileImage} css={tw`fixed -top-2 z-10 lg:flex hidden lg:w-[30%]`} alt={"profileImage"} srcSet={profileImage} />
             <div
-                css={tw`w-full sm:w-[30%] z-20 bg-cover bg-gradient-to-r from-black/30 to-black flex justify-center sm:justify-start sm:grid`}
+                css={tw`w-full lg:w-[30%] z-20 bg-cover bg-gradient-to-r from-black/30 to-black flex justify-center lg:justify-start lg:grid`}
             >
                 <div
                     css={tw`p-10 gap-y-4`}

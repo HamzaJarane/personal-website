@@ -15,13 +15,13 @@ function AboutMe() {
             </CardDescription>
 
             <CardDescription>
-                In 2020, I began my career as a Linux administrator, which ignited my passion for DevOps and web development.
-                Now, as a full-stack developer with over two years of experience,
+                In <CardDescriptionHighLight>2020</CardDescriptionHighLight>, I began my career as a <CardDescriptionHighLight>Linux administrator</CardDescriptionHighLight>, which ignited my passion for <CardDescriptionHighLight>DevOps</CardDescriptionHighLight> and <CardDescriptionHighLight>Web development</CardDescriptionHighLight>.
+                Now, as a <CardDescriptionHighLight>full-stack developer</CardDescriptionHighLight> with over two years of experience,
                 I specialize in creating user-friendly websites and web applications using modern technologies.
             </CardDescription>
 
             <CardDescription>
-                <CardDescriptionHighLight css={tw`text-xl`}>Languages</CardDescriptionHighLight>
+                <CardDescriptionHighLight css={tw`text-xl underline`}>Languages</CardDescriptionHighLight>
             </CardDescription>
 
             <CardDescription>
@@ -29,7 +29,7 @@ function AboutMe() {
             </CardDescription>
 
             <CardDescription>
-                <CardDescriptionHighLight css={tw`text-xl`}>Frameworks</CardDescriptionHighLight>
+                <CardDescriptionHighLight css={tw`text-xl underline`}>Frameworks</CardDescriptionHighLight>
             </CardDescription>
 
             <CardDescription>

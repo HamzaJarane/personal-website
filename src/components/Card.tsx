@@ -7,7 +7,7 @@ import Work from '@/components/Cards/Work';
 
 function Card() {
     return (
-        <div css={tw`w-full p-3 sm:p-0 sm:w-[70%] sm:h-screen sm:overflow-y-auto`}>
+        <div css={tw`w-full p-3 lg:p-0 lg:w-[70%] lg:h-screen lg:overflow-y-auto`}>
             <AboutMe />
             <Experience />
             <Work />

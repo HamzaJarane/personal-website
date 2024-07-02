@@ -3,9 +3,10 @@ import { CardTitle, WorkRow, WorkContainer } from '@/helpers/StyledComponents';
 import tw from 'twin.macro';
 import { works } from '@/helpers/getWork';
 
+
 function Work() {
     return (
-        <div css={tw`pt-[100px] sm:pt-[60px]`}>
+        <div css={tw`pt-[100px] lg:pt-[60px]`}>
             <CardTitle>
                 Work.
             </CardTitle>
@@ -18,7 +19,7 @@ function Work() {
                     >
                         <div>
                             <img 
-                                css={tw`sm:h-[120px] rounded border border-white`}
+                                css={tw`min-w-full lg:h-[120px] lg:min-w-[240px] lg:max-w-[240px] rounded border border-white`}
                                 src={work.image} 
                                 alt={work.name} 
                                 srcSet={work.image} 
@@ -35,9 +36,8 @@ function Work() {
                             <div
                                 className={'wDescription'}
                                 css={tw`font-light`}
-                            >
-                                {work.description}
-                            </div>
+                                dangerouslySetInnerHTML={{ __html: work.description }}
+                            />
                             <ul
                                 css={tw`mt-2 flex space-x-1 items-center`}
                             >

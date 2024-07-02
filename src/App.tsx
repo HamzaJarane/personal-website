@@ -9,12 +9,15 @@ const Card = lazy(() => import('@/components/Card'));
 export default function App() {
 
   return (
-    <div css={tw`sm:flex grid bg-black w-screen`}>
-      <Suspense fallback={<pre>Working on it ...</pre>}>
+    <div css={tw`lg:flex grid text-white bg-black w-screen`}>
+      <Suspense
+        fallback={
+          <div css={tw`h-screen w-screen flex justify-center items-center`}>
+            <div className="loader" />
+          </div>
+        }
+      >
         <Profile />
-      </Suspense>
-
-      <Suspense fallback={<pre>Working on it ...</pre>}>
         <Card />
       </Suspense>
     </div>
