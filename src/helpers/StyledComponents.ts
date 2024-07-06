@@ -114,10 +114,14 @@ export const ExperienceTimeLine = styled.div`
     }
 
     & .eSkill {
-        ${tw`bg-white rounded-2xl text-sm text-black`}
+        ${tw`bg-white rounded-2xl text-sm text-black cursor-pointer transition-all ease-in-out duration-150`}
 
         & div {
             ${tw`py-1 px-2`}
+        }
+
+        &:hover {
+            transform: scale(0.9);
         }
     }
 `;

@@ -30,6 +30,7 @@ function Experience() {
                             <div className={'eHero-2'}>
                                 <a
                                     href={experience.company.link ?? '#'}
+                                    target={'_blank'}
                                 >
                                     {experience.company.name}
 
