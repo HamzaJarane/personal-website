@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
 import githubProfile from '@/assets/json/profile.json'
-import { IconProp, icon } from '@fortawesome/fontawesome-svg-core';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 

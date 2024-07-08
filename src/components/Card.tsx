@@ -5,7 +5,7 @@ import AboutMe from '@/components/Cards/AboutMe';
 import Experience from '@/components/Cards/Experience';
 import Work from '@/components/Cards/Work';
 import Footer from '@/components/Cards/Footer';
-
+import OpenSource from '@/components/Cards/OpenSource';
 
 function Card() {
     return (
@@ -13,7 +13,7 @@ function Card() {
             <AboutMe />
             <Experience />
             <Work />
-            <Footer />
+            <OpenSource />
         </div>
     )
 }
