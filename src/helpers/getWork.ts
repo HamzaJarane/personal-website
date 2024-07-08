@@ -13,7 +13,7 @@ interface IWork {
 
 export const works: IWork[] = [
     {
-        name: 'Rancy Hotels',
+        name: 'Rancy Hotels (On work)',
         link: 'https://rancy-hotels.com',
         image: rancyImage,
         description: 'Freelance project for RancyHotels where I worked on main site (WordPress) and booking dashboard (Laravel and filament).',

@@ -21,7 +21,7 @@ function OpenSource() {
                         key={work.name}
                         href={work.html_url}
                         target={'_blank'}
-                        css={tw`border border-white`}
+                        css={tw`lg:border lg:border-white`}
                     >
 
                         <div>
