@@ -8,7 +8,7 @@ interface IExperience {
     type: string;
     from: string;
     to: string;
-    description: string;
+    descriptions: string[];
     skills: string[];
 }
 
@@ -25,14 +25,18 @@ export const experiences: IExperience[] = [
         from: '2024 / April',
         to: 'Present',
 
-        description: 'A Web / Servers / GameServers hosting solution in <strong>Russia</strong>.',
+        descriptions: [
+            "Redesigned client's dashboard with ReactJS and Laravel.",
+            "Imported pterodactyl.io APIs to the backend using Laravel and filament.",
+            "Contribute to the frontend dashboard with VueJS.",
+        ],
         skills: ['Figma', 'Laravel', 'Filament', 'Vue.JS', 'Gitlab', 'Docker']
     },
     {
         role: 'Full Stack Developer',
         company: {
-            name: 'AjiCod',
-            link: 'https://ajicod.com',
+            name: 'DigitalBaba',
+            link: 'https://digitaldaba.com',
         },
         place: 'Agadir, Morocco',
         type: 'Remote / Paid per project',
@@ -40,7 +44,10 @@ export const experiences: IExperience[] = [
         from: '2023',
         to: 'Present',
 
-        description: 'A digital marketing agencey based on agadir, known now as <strong>DigitalBaba</strong>.',
+        descriptions: [
+            "Collaborated with a team of developers to develop modern and friendly web solutions.",
+            "Integrate payment gateways such as CMI / Paypal / Stripe and Youcan Pay.",
+        ],
         skills: ['Figma', 'CloudPanel', 'CI/CD', 'Mailu', 'Laravel', 'Filament', 'Next.JS', 'Express.JS']
     },
 
