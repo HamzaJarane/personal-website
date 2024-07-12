@@ -4,8 +4,9 @@ import profileImage from '@/assets/images/profile-background.png'
 import { getProfileData } from '@/helpers/getProfileData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { ProfileImage, FullName, FieldsGroup, Field } from '@/helpers/StyledComponents';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { ProfileImage, FullName, FieldsGroup, Field, ProfileButton } from '@/helpers/StyledComponents';
+import { faDesktop, faDownload } from '@fortawesome/free-solid-svg-icons';
+import resume from '@/assets/resume.pdf';
 
 function Profile() {
     const data = getProfileData();
@@ -47,15 +48,36 @@ function Profile() {
                             </Field>
                         ))}
                     </FieldsGroup>
-                    <button
-                        css={tw`bg-black rounded`}
+                    <div
+                        css={tw`pt-2 flex space-x-2`}
                     >
-                        <div
-                            css={tw`p-2`}
+                        <ProfileButton
+                            onClick={() => {
+                                const link = document.createElement('a');
+
+                                link.href = resume;
+                                link.download = 'Resume';
+
+                                link.click();
+                            }}
                         >
-                            <FontAwesomeIcon icon={faDownload} /> Resume
-                        </div>
-                    </button>
+                            <div
+                                css={tw`p-2`}
+                            >
+                                <FontAwesomeIcon icon={faDownload} /> Resume
+                            </div>
+                        </ProfileButton>
+
+                        <ProfileButton
+                            onClick={() => window.location.assign('https://cyyc12.cyyc.lol')}
+                        >
+                            <div
+                                css={tw`p-2`}
+                            >
+                                <FontAwesomeIcon icon={faDesktop} /> Desktop
+                            </div>
+                        </ProfileButton>
+                    </div>
                 </div>
             </div>
         </>

@@ -154,3 +154,11 @@ export const WorkRow = styled.a`
         }
     }
 `;
+
+export const ProfileButton = styled.button`
+    ${tw`bg-black text-white transition-all duration-150 ease-in-out rounded`}
+
+    &:hover {
+        ${tw`bg-white text-black scale-105`}
+    }
+`;
