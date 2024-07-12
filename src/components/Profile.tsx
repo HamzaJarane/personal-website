@@ -5,6 +5,7 @@ import { getProfileData } from '@/helpers/getProfileData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { ProfileImage, FullName, FieldsGroup, Field } from '@/helpers/StyledComponents';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 function Profile() {
     const data = getProfileData();
@@ -46,6 +47,15 @@ function Profile() {
                             </Field>
                         ))}
                     </FieldsGroup>
+                    <button
+                        css={tw`bg-black rounded`}
+                    >
+                        <div
+                            css={tw`p-2`}
+                        >
+                            <FontAwesomeIcon icon={faDownload} /> Resume
+                        </div>
+                    </button>
                 </div>
             </div>
         </>
