@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { ProfileImage, FullName, FieldsGroup, Field, ProfileButton } from '@/helpers/StyledComponents';
 import { faDesktop, faDownload } from '@fortawesome/free-solid-svg-icons';
-import resume from '@/assets/resume.pdf';
 
 function Profile() {
     const data = getProfileData();
@@ -54,10 +53,8 @@ function Profile() {
                         <ProfileButton
                             onClick={() => {
                                 const link = document.createElement('a');
-
-                                link.href = resume;
+                                link.href = `https://cyyc12.cyyc.lol/static/documents/Hamza%20Jarane's%20resume.pdf`;
                                 link.download = 'Resume';
-
                                 link.click();
                             }}
                         >
