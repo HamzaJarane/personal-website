@@ -9,10 +9,7 @@ function OpenSource() {
 
     return (
         <div css={tw``}>
-            <CardTitle>
-                OpenSource.
-            </CardTitle>
-
+            <CardTitle text={'OpenSource.'} />
             <div
                 css={tw`space-y-2 mb-3`}
             >

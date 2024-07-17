@@ -12,10 +12,7 @@ function Experience() {
             </div>
 
             <div>
-                <CardTitle>
-                    Experience.
-                </CardTitle>
-
+                <CardTitle text={'Experience.'} />
                 <div css={tw`-my-6`}>
 
                     {experiences.map(experience => (
@@ -43,7 +40,7 @@ function Experience() {
                             </div>
 
                             <div className={'eDescription'}>
-                                {experience.descriptions.map((desc) => <div>&#x2022; {desc}</div>)}
+                                {experience.descriptions.map((desc) => <div key={desc}>&#x2022; {desc}</div>)}
                             </div>
 
                             <ul className={'eSkills'}>

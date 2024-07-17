@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { ProfileImage, FullName, FieldsGroup, Field, ProfileButton } from '@/helpers/StyledComponents';
 import { faDesktop, faDownload } from '@fortawesome/free-solid-svg-icons';
+import { Tween } from 'react-gsap';
 
 function Profile() {
     const data = getProfileData();
@@ -17,13 +18,15 @@ function Profile() {
                 css={tw`w-full lg:w-[30%] z-20 bg-cover bg-gradient-to-r from-black/30 to-black flex justify-center lg:justify-start lg:items-center lg:grid`}
             >
                 <div
-                    css={tw`p-10 gap-y-4`}
+                    css={tw`p-10 gap-y-4 lg:fixed lg:top-1 lg:left-1`}
                 >
-                    <ProfileImage
-                        src={data.github.avatar_url}
-                        alt={"profilePicture"}
-                        srcSet={data.github.avatar_url}
-                    />
+                    <Tween from={{ x: '-200px' }} to={{ x: '0px', rotation: 360 }} duration={0.3} ease="back.out(1.7)">
+                        <ProfileImage
+                            src={data.github.avatar_url}
+                            alt={"profilePicture"}
+                            srcSet={data.github.avatar_url}
+                        />
+                    </Tween>
 
                     <FullName>
                         Hamza Jarane

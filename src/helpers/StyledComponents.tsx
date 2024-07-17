@@ -1,4 +1,10 @@
 import tw, { styled } from 'twin.macro';
+import { Tween, ScrollTrigger } from 'react-gsap';
+
+import { gsap } from 'gsap';
+import { TextPlugin } from 'gsap/TextPlugin';
+
+gsap.registerPlugin(TextPlugin);
 
 export const CardDescription = styled.div`
     ${tw`font-light text-white mb-3 max-w-[90%]`}
@@ -12,13 +18,25 @@ export const CardDescriptionHighLight = styled.span`
     }
 `;
 
-export const CardTitle = styled.div`
+export const CardTitleRow = styled.div`
     ${tw`text-[50px] text-white font-semibold my-5`}
 
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: #fff;
 `;
+
+export const CardTitle = ({ text }: { text: string }) => {
+    return (
+        <ScrollTrigger>
+            <CardTitleRow>
+                <Tween to={{ text }} duration={1.2}>
+                    <span>{text.split("").reverse().map(t => ` ${t}`).join("")}</span>
+                </Tween>
+            </CardTitleRow>
+        </ScrollTrigger>
+    );
+}
 
 export const ProfileImage = styled.img`
     ${tw`rounded ring ring-black w-[190px]`}
