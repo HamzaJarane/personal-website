@@ -20,7 +20,7 @@ function Profile() {
                 <div
                     css={tw`p-10 gap-y-4 lg:fixed lg:top-1 lg:left-1`}
                 >
-                    <Tween from={{ x: '-200px' }} to={{ x: '0px', rotation: 360 }} duration={0.3} ease="back.out(1.7)">
+                    <Tween from={{ x: '-200px' }} to={{ x: '0px', rotation: 360 }} duration={1} ease="back.out(1.7)">
                         <ProfileImage
                             src={data.github.avatar_url}
                             alt={"profilePicture"}

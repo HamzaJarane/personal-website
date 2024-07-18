@@ -19,7 +19,7 @@ export const CardDescriptionHighLight = styled.span`
 `;
 
 export const CardTitleRow = styled.div`
-    ${tw`text-[50px] text-white font-semibold my-5`}
+    ${tw`text-[50px] text-white font-semibold my-5 underline`}
 
     -webkit-background-clip: text;
     background-clip: text;
@@ -30,7 +30,7 @@ export const CardTitle = ({ text }: { text: string }) => {
     return (
         <ScrollTrigger>
             <CardTitleRow>
-                <Tween to={{ text }} duration={1.2}>
+                <Tween to={{ text }} duration={1.4} delay={0.2}>
                     <span>{text.split("").reverse().map(t => ` ${t}`).join("")}</span>
                 </Tween>
             </CardTitleRow>

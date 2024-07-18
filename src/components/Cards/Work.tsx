@@ -12,14 +12,10 @@ function Work() {
                 {works.map(work => (
                     <ScrollTriggerContainer
                         key={work.name}
-                        start={'-100px center'}
+                        start={'100px center'}
                         end={'0px center'}
                         scrub
                     >
-                        <Tween
-                            from={{ x: '-1000px' }}
-                            to={{ x: '0px' }}
-                        >
                             <WorkRow
                                 href={work.link}
                                 target={'_blank'}
@@ -64,7 +60,7 @@ function Work() {
                                     </ul>
                                 </div>
                             </WorkRow>
-                        </Tween>
+                        
                     </ScrollTriggerContainer>
                 ))}
             </WorkContainer>
