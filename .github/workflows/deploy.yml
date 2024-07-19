@@ -1,0 +1,50 @@
+name: Deploy to hetzner over wireguard
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Code Checkout
+      uses: actions/checkout@v3
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+
+    - name: Setup yarn
+      run: npm install -g yarn
+
+    - name: Install yarn dependencies
+      run: yarn
+
+    - name: Run build task
+      run: yarn build
+
+    - name: Set up WireGuard
+      uses: egor-tensin/setup-wireguard@v1
+      with:
+        endpoint: '${{ secrets.TUNNEL_ENDPOINT }}'
+        endpoint_public_key: '${{ secrets.TUNNEL_ENDPOINT_PUBLIC_KEY }}'
+        ips: '${{ secrets.TUNNEL_IPS }}'
+        allowed_ips: '${{ secrets.TUNNEL_ALLOWED_IPS }}'
+        private_key: '${{ secrets.TUNNEL_PRIVATE_KEY }}'
+        preshared_key: '${{ secrets.TUNNEL_PRESHARED_KEY }}'
+
+    - name: Deploy to Production
+      uses: easingthemes/ssh-deploy@main
+      with:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        ARGS: "-rlgoDzvc -i --delete"
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+        REMOTE_USER: ${{ secrets.REMOTE_USER }}
+        TARGET: ${{ secrets.REMOTE_TARGET }}
+        EXCLUDE: "/node_modules/"
+        SCRIPT_AFTER: |
+          systemctl restart nginx
