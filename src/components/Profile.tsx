@@ -20,7 +20,7 @@ function Profile() {
                 <div
                     css={tw`p-10 gap-y-4 lg:fixed lg:top-1 lg:left-1`}
                 >
-                    <Tween from={{ x: '-200px' }} to={{ x: '0px', rotation: 360 }} duration={1} ease="back.out(1.7)">
+                    <Tween from={{ x: '-300px' }} to={{ x: '0px', rotation: 360 }} duration={1} ease="back.out(1.7)" delay={1}>
                         <ProfileImage
                             src={profilePicture}
                             alt={"profilePicture"}
