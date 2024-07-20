@@ -31,6 +31,19 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,pdf,json}'],
         maximumFileSizeToCacheInBytes: 5000000, // 5mb
+      },      
+      manifest: {
+        name: 'Cyyc - Portfolio',
+        short_name: 'Cyyc',
+        description: 'My personal portfolio',
+        theme_color: '#ffffff',
+        icons: [
+          {
+            src: 'icon.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
       }
     }),
   ],
