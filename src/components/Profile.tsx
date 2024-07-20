@@ -1,4 +1,3 @@
-import React from 'react'
 import tw from 'twin.macro';
 import profileImage from '@/assets/images/profile-background.png'
 import { getProfileData } from '@/helpers/getProfileData';
@@ -7,6 +6,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { ProfileImage, FullName, FieldsGroup, Field, ProfileButton } from '@/helpers/StyledComponents';
 import { faDesktop, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { Tween } from 'react-gsap';
+import profilePicture from '@/assets/images/profile-picture.png';
 
 function Profile() {
     const data = getProfileData();
@@ -22,9 +22,9 @@ function Profile() {
                 >
                     <Tween from={{ x: '-200px' }} to={{ x: '0px', rotation: 360 }} duration={1} ease="back.out(1.7)">
                         <ProfileImage
-                            src={data.github.avatar_url}
+                            src={profilePicture}
                             alt={"profilePicture"}
-                            srcSet={data.github.avatar_url}
+                            srcSet={profilePicture}
                         />
                     </Tween>
 
