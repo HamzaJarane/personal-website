@@ -35,11 +35,11 @@ export const experiences: IExperience[] = [
     {
         role: 'Full Stack Developer',
         company: {
-            name: 'DigitalBaba',
-            link: 'https://digitaldaba.com',
+            name: 'Ajicod',
+            link: 'https://ajicod.com',
         },
         place: 'Agadir, Morocco',
-        type: 'Remote / Paid per project',
+        type: 'Internship',
 
         from: '2023',
         to: 'Present',
@@ -48,7 +48,7 @@ export const experiences: IExperience[] = [
             "Collaborated with a team of developers to develop modern and friendly web solutions.",
             "Integrate payment gateways such as CMI / Paypal / Stripe and Youcan Pay.",
         ],
-        skills: ['Figma', 'CloudPanel', 'CI/CD', 'Mailu', 'Laravel', 'Filament', 'Next.JS', 'Express.JS']
+        skills: ['Figma', 'CI/CD', 'Mailu', 'Laravel', 'Filament', 'Next.JS', 'Express.JS']
     },
 
     // {
