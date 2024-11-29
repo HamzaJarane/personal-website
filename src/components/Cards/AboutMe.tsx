@@ -8,7 +8,7 @@ function AboutMe() {
             <CardTitle text={'About me.'} />
             <CardDescription>
                 My name is <CardDescriptionHighLight>Hamza</CardDescriptionHighLight>,
-                I'm a <CardDescriptionHighLight>20</CardDescriptionHighLight> year old from <CardDescriptionHighLight>Morroco</CardDescriptionHighLight>.
+                I'm a <CardDescriptionHighLight>21</CardDescriptionHighLight> year old from <CardDescriptionHighLight>Morroco</CardDescriptionHighLight>.
             </CardDescription>
 
             <CardDescription>
@@ -22,7 +22,7 @@ function AboutMe() {
             </CardDescription>
 
             <CardDescription>
-                TypeScript / JavaScript and PHP.
+                TypeScript / JavaScript / Kotlin and PHP.
             </CardDescription>
 
             <CardDescription>
