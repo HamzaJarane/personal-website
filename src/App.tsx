@@ -7,7 +7,7 @@ const Card = lazy(() => import('@/components/Card'));
 
 export default function App() {
   return (
-    <div css={tw`lg:flex grid text-white bg-black w-screen`}>
+    <div css={tw`lg:flex grid text-white bg-black h-screen w-screen`}>
       <Suspense
         fallback={
           <div css={tw`h-screen w-screen flex justify-center items-center`}>
