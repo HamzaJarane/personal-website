@@ -31,7 +31,8 @@ export const CardTitle = ({ text }: { text: string }) => {
         <ScrollTrigger>
             <CardTitleRow>
                 <Tween to={{ text }} duration={1.4} delay={0.2}>
-                    <span>{text.split("").reverse().map(t => ` ${t}`).join("")}</span>
+                    {/* <span>{text.split("").reverse().map(t => ` ${t}`).join("")}</span> */}
+                    <span>{text}</span>
                 </Tween>
             </CardTitleRow>
         </ScrollTrigger>

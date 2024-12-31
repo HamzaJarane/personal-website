@@ -2,12 +2,15 @@ import { CardTitle, WorkRow, WorkContainer } from '@/helpers/StyledComponents';
 import tw from 'twin.macro';
 import { works } from '@/helpers/getWork';
 import { Tween, ScrollTrigger as ScrollTriggerContainer } from 'react-gsap';
+import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 
 function Work() {
+    const { t } = useTranslation();
     return (
         <div css={tw`pt-[100px] lg:pt-[60px]`}>
-            <CardTitle text={'Work.'} />
+            <CardTitle text={t('work.title')} />
             <WorkContainer className={'workBox'} css={tw`overflow-hidden`}>
                 {works.map(work => (
                     <ScrollTriggerContainer
@@ -18,7 +21,7 @@ function Work() {
                     >
                             <WorkRow
                                 href={work.link}
-                                target={'_blank'}
+                                target={work.link !== '#' ? '_blank' : '_self'}
                             >
                                 <div>
                                     <img

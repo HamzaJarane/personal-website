@@ -3,8 +3,11 @@ import { experiences } from '@/helpers/getExperiences';
 import tw from 'twin.macro';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 function Experience() {
+    const { t } = useTranslation();
+
     return (
         <div css={tw`flex space-x-1 text-white`}>
             <div>
@@ -12,7 +15,7 @@ function Experience() {
             </div>
 
             <div>
-                <CardTitle text={'Experience.'} />
+                <CardTitle text={t('experience.title')} />
                 <div css={tw`-my-6`}>
 
                     {experiences.map(experience => (

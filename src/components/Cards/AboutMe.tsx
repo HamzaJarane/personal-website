@@ -1,32 +1,50 @@
 import React from 'react'
 import { CardTitle, CardDescription, CardDescriptionHighLight } from '@/helpers/StyledComponents';
 import tw from 'twin.macro';
+import { Trans, useTranslation } from 'react-i18next';
 
 function AboutMe() {
+    const { t } = useTranslation();
+    function getAge(birthDate: string) {
+        const today = new Date();
+        const birth = new Date(birthDate);
+        const monthDiff = today.getMonth() - birth.getMonth();
+        
+        let age = today.getFullYear() - birth.getFullYear();
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+            age--;
+        }
+        return age;
+    }
+
     return (
         <div>
-            <CardTitle text={'About me.'} />
+            <CardTitle text={t('aboutme.title')} />
             <CardDescription>
-                My name is <CardDescriptionHighLight>Hamza</CardDescriptionHighLight>,
-                I'm a <CardDescriptionHighLight>21</CardDescriptionHighLight> year old from <CardDescriptionHighLight>Morroco</CardDescriptionHighLight>.
+                <Trans
+                    i18nKey="aboutme.0"
+                    values={{ name: 'Hamza', age: getAge('2003-10-26'), country: t('country') }}
+                    components={[<CardDescriptionHighLight />, <CardDescriptionHighLight />, <CardDescriptionHighLight />]}
+                />
             </CardDescription>
 
             <CardDescription>
-                In <CardDescriptionHighLight>2020</CardDescriptionHighLight>, I began my career as a <CardDescriptionHighLight>Linux administrator</CardDescriptionHighLight>, which ignited my passion for <CardDescriptionHighLight>DevOps</CardDescriptionHighLight> and <CardDescriptionHighLight>Web development</CardDescriptionHighLight>.
-                Now, as a <CardDescriptionHighLight>full-stack developer</CardDescriptionHighLight> with over two years of experience,
-                I specialize in creating user-friendly websites and web applications using modern technologies.
+                <Trans
+                    i18nKey="aboutme.1"
+                    components={[<CardDescriptionHighLight />, <CardDescriptionHighLight />, <CardDescriptionHighLight />, <CardDescriptionHighLight />]}
+                />
             </CardDescription>
 
             <CardDescription>
-                <CardDescriptionHighLight css={tw`text-xl underline`}>Languages</CardDescriptionHighLight>
+                <CardDescriptionHighLight css={tw`text-xl underline`}>{t('aboutme.2')}</CardDescriptionHighLight>
             </CardDescription>
 
             <CardDescription>
-                TypeScript / JavaScript / Kotlin and PHP.
+                TypeScript, JavaScript, Kotlin, PHP.
             </CardDescription>
 
             <CardDescription>
-                <CardDescriptionHighLight css={tw`text-xl underline`}>Frameworks</CardDescriptionHighLight>
+                <CardDescriptionHighLight css={tw`text-xl underline`}>{t('aboutme.3')}</CardDescriptionHighLight>
             </CardDescription>
 
             <CardDescription>

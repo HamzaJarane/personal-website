@@ -1,6 +1,7 @@
 import tw from 'twin.macro';
 import { lazy, Suspense } from 'react';
-import '@/App.css'
+import '@/App.css';
+import './i18n';
 
 const Profile = lazy(() => import('@/components/Profile'));
 const Card = lazy(() => import('@/components/Card'));

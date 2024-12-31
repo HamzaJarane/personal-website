@@ -1,19 +1,25 @@
 import tw from 'twin.macro';
-import profileImage from '@/assets/images/profile-background.png'
+import backgroundImage from '@/assets/images/profile-background.png'
 import { getProfileData } from '@/helpers/getProfileData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { ProfileImage, FullName, FieldsGroup, Field, ProfileButton } from '@/helpers/StyledComponents';
 import { faDesktop, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { Tween } from 'react-gsap';
-import profilePicture from '@/assets/images/profile-picture.png';
+import { useTranslation } from 'react-i18next';
 
 function Profile() {
+    const { t } = useTranslation();
     const data = getProfileData();
-
+    const profilePicture = `https://avatars.githubusercontent.com/u/${data.github.id}?v=${Math.round(Math.random()*10)}`;
     return (
         data && <>
-            <img src={profileImage} css={tw`fixed -top-2 z-10 lg:flex hidden h-screen lg:w-[30%]`} alt={"profileImage"} srcSet={profileImage} />
+            <img 
+                src={backgroundImage} 
+                css={tw`fixed -top-2 z-10 lg:flex hidden h-screen lg:w-[30%]`} 
+                alt={"profileImage"} 
+                srcSet={backgroundImage} 
+            />
             <div
                 css={tw`w-full lg:w-[30%] z-20 bg-cover bg-gradient-to-r from-black/30 to-black flex justify-center lg:justify-start lg:items-center lg:grid`}
             >
@@ -37,7 +43,7 @@ function Profile() {
                             href={data.github.html_url}
                             target={'_blank'}
                         >
-                            <FontAwesomeIcon icon={faGithub} /> <span>{data.github.login}</span>
+                            <FontAwesomeIcon icon={faGithub} /> <span>{data.github.name}</span>
                         </Field>
 
                         {data.general.map((social) => (
@@ -57,14 +63,14 @@ function Profile() {
                             onClick={() => {
                                 const link = document.createElement('a');
                                 link.href = `https://cyyc12.cyyc.lol/static/documents/Hamza%20Jarane's%20resume.pdf`;
-                                link.download = 'Resume';
+                                link.download = t('profile.resume');
                                 link.click();
                             }}
                         >
                             <div
                                 css={tw`p-2`}
                             >
-                                <FontAwesomeIcon icon={faDownload} /> Resume
+                                <FontAwesomeIcon icon={faDownload} /> {t('profile.resume')}
                             </div>
                         </ProfileButton>
 
@@ -74,7 +80,7 @@ function Profile() {
                             <div
                                 css={tw`p-2`}
                             >
-                                <FontAwesomeIcon icon={faDesktop} /> Desktop
+                                <FontAwesomeIcon icon={faDesktop} /> {t('profile.desktop')}
                             </div>
                         </ProfileButton>
                     </div>

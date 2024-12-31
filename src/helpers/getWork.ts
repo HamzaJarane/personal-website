@@ -1,7 +1,9 @@
 import rancyImage from '@/assets/images/works/rancy.png';
-import cyyc12Image from '@/assets/images/works/cyyc12.png'
+import cyyc12Image from '@/assets/images/works/cyyc12.png';
 import walkincity from '@/assets/images/works/walkincity.png';
 import paulromhosting from '@/assets/images/works/paulromhosting.png';
+import linksevent from '@/assets/images/works/linksevent.png';
+import i18n from '@/i18n';
 
 interface IWork {
     name: string;
@@ -13,31 +15,38 @@ interface IWork {
 
 export const works: IWork[] = [
     {
-        name: 'Rancy Hotels (On work)',
-        link: 'https://rancy-hotels.com',
+        name: 'Rancy Hotels',
+        link: '#',
         image: rancyImage,
-        description: 'Freelance project for RancyHotels where I worked on main site (WordPress) and booking dashboard (Laravel and filament).',
+        description: i18n.t('work.rancy'),
         languages: ['WordPress', 'Laravel', 'Filament', 'Livewire', 'OOP', 'Tailwind CSS', 'CMI'],
     },
     {
-        name: 'PaulromHosting',
-        link: 'https://paulromhosting.net/',
+        name: 'Paulrom Hosting',
+        link: '#',
         image: paulromhosting,
-        description: 'Freelance project for paulromhosting where I turned <strong>Pterodactyl.io</strong> software into a game hosting store with credits.',
+        description: i18n.t('work.paulromhosting'),
         languages: ['React.JS', 'Tailwind CSS', 'Laravel', 'PayPal', 'Stripe', 'Docker'],
+    },
+    {
+        name: 'Links Event',
+        link: '#',
+        image: linksevent,
+        description: i18n.t('work.linksevent'),
+        languages: ['React.JS', 'Tailwind CSS', 'Laravel', 'Next.JS'],
     },
     {
         name: 'Walkin.City',
         link: 'https://walkin.city',
         image: walkincity,
-        description: 'A fun project for virtual walking over cities lets users explore cities online with no cost.',
+        description: i18n.t('work.walkincity'),
         languages: ['Next.JS', 'Tailwind CSS', 'Socket.io', 'MySQL', 'Zustand', 'NextAuth', 'Three.JS'],
     },
     {
         name: 'Cyyc12',
         link: 'https://cyyc12.vercel.app',
         image: cyyc12Image,
-        description: 'Clone of my debian 12 kde as Webgui, all on client side nothing on the server.',
+        description: i18n.t('work.cyyc12'),
         languages: ['React.JS', 'Tailwind CSS', 'Styled-Components', 'Twin.Macro', 'Zustand'],
     },
 ];
