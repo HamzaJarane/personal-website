@@ -31,6 +31,7 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,pdf,json}'],
         maximumFileSizeToCacheInBytes: 5000000, // 5mb
+        cleanupOutdatedCaches: true,
       },      
       manifest: {
         name: 'Hamza Jarane - Portfolio',
@@ -44,7 +45,7 @@ export default defineConfig({
             type: 'image/png'
           }
         ]
-      }
+      },
     }),
   ],
 })
