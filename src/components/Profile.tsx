@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 function Profile() {
     const { t } = useTranslation();
     const data = getProfileData();
-    const profilePicture = `https://avatars.githubusercontent.com/u/${data.github.id}?v=${Math.round(Math.random()*10)}`;
+    const profilePicture = `https://avatars.githubusercontent.com/u/${data.github.id}?v=${data.github.fetchedTime}`;
     return (
         data && <>
             <img 
@@ -62,7 +62,7 @@ function Profile() {
                         <ProfileButton
                             onClick={() => {
                                 const link = document.createElement('a');
-                                link.href = `https://cyyc12.cyyc.lol/static/documents/Hamza%20Jarane's%20resume.pdf`;
+                                link.href = `https://os.hamza.im/static/documents/Hamza%20Jarane's%20resume.pdf`;
                                 link.download = t('profile.resume');
                                 link.click();
                             }}
@@ -75,7 +75,7 @@ function Profile() {
                         </ProfileButton>
 
                         <ProfileButton
-                            onClick={() => window.location.assign('https://cyyc12.cyyc.lol')}
+                            onClick={() => window.location.assign('https://os.hamza.im')}
                         >
                             <div
                                 css={tw`p-2`}

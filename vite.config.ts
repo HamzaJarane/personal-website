@@ -33,8 +33,8 @@ export default defineConfig({
         maximumFileSizeToCacheInBytes: 5000000, // 5mb
       },      
       manifest: {
-        name: 'Cyyc - Portfolio',
-        short_name: 'Cyyc',
+        name: 'Hamza Jarane - Portfolio',
+        short_name: 'HamzaJarane',
         description: 'My personal portfolio',
         theme_color: '#ffffff',
         icons: [

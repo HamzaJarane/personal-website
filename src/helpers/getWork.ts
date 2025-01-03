@@ -1,5 +1,5 @@
 import rancyImage from '@/assets/images/works/rancy.png';
-import cyyc12Image from '@/assets/images/works/cyyc12.png';
+import hamzaOSImage from '@/assets/images/works/hamzaOS.png';
 import walkincity from '@/assets/images/works/walkincity.png';
 import paulromhosting from '@/assets/images/works/paulromhosting.png';
 import linksevent from '@/assets/images/works/linksevent.png';
@@ -43,10 +43,10 @@ export const works: IWork[] = [
         languages: ['Next.JS', 'Tailwind CSS', 'Socket.io', 'MySQL', 'Zustand', 'NextAuth', 'Three.JS'],
     },
     {
-        name: 'Cyyc12',
-        link: 'https://cyyc12.vercel.app',
-        image: cyyc12Image,
-        description: i18n.t('work.cyyc12'),
+        name: 'hamzaOS',
+        link: 'https://os.hamza.im',
+        image: hamzaOSImage,
+        description: i18n.t('work.hamzaOS'),
         languages: ['React.JS', 'Tailwind CSS', 'Styled-Components', 'Twin.Macro', 'Zustand'],
     },
 ];

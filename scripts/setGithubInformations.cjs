@@ -3,6 +3,7 @@ const fs = require('fs');
 const githubID = "70551889";
 
 axios.get('https://api.github.com/user/'+githubID).then(({ data }) => {
+    data.fetchedTime = new Date().getMilliseconds();
     fs.writeFileSync(`${__dirname}/../src/assets/json/profile.json`, JSON.stringify(data));
 }).catch((e) => {
     console.error('Failed to fetch github profile data', e)
