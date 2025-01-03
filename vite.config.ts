@@ -1,6 +1,5 @@
-// vite.config.ts
 import { defineConfig } from 'vite';
-import { VitePWA } from 'vite-plugin-pwa';
+// import { VitePWA } from 'vite-plugin-pwa';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
@@ -26,26 +25,26 @@ export default defineConfig({
         plugins: ['babel-plugin-macros', 'babel-plugin-styled-components'],
       },
     }),
-    VitePWA({ 
-      registerType: 'autoUpdate',
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,pdf,json}'],
-        maximumFileSizeToCacheInBytes: 5000000, // 5mb
-        cleanupOutdatedCaches: true,
-      },      
-      manifest: {
-        name: 'Hamza Jarane - Portfolio',
-        short_name: 'HamzaJarane',
-        description: 'My personal portfolio',
-        theme_color: '#ffffff',
-        icons: [
-          {
-            src: 'icon.png',
-            sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
-      },
-    }),
+    // VitePWA({ 
+    //   registerType: 'autoUpdate',
+    //   workbox: {
+    //     globPatterns: ['**/*.{js,css,html,ico,png,svg,pdf,json}'],
+    //     maximumFileSizeToCacheInBytes: 5000000, // 5mb
+    //     cleanupOutdatedCaches: true,
+    //   },      
+    //   manifest: {
+    //     name: 'Hamza Jarane - Portfolio',
+    //     short_name: 'HamzaJarane',
+    //     description: 'My personal portfolio',
+    //     theme_color: '#ffffff',
+    //     icons: [
+    //       {
+    //         src: 'icon.png',
+    //         sizes: '512x512',
+    //         type: 'image/png'
+    //       }
+    //     ]
+    //   },
+    // }),
   ],
 })
