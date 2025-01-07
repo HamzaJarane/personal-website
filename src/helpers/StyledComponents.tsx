@@ -146,30 +146,30 @@ export const ExperienceTimeLine = styled.div`
 `;
 
 export const WorkContainer = styled.div`
-    ${tw`space-y-2 mb-3`}
+    ${tw`flex flex-col gap-2 items-center mb-3`}
 `;
 
-export const WorkRow = styled.a`
-    ${tw`p-3 rounded space-y-2 lg:flex lg:space-y-0 lg:space-x-4 max-w-[90%] text-white transition-all ease-in-out duration-200`}
+export const WorkRow = styled.div`
+    ${tw`p-3 rounded space-y-2 lg:flex lg:space-y-0 lg:space-x-4 lg:max-w-[90%] text-white transition-all ease-in-out duration-200`}
 
     &:hover {
-        ${tw`lg:bg-white`}
+        ${tw`bg-white cursor-pointer`}
         transform: scale(0.99);
 
         & img {
-            ${tw`lg:border-black`}
+            ${tw`border-black`}
         }
 
         & .wName {
-            ${tw`lg:text-black`}
+            ${tw`text-black`}
         }
     
         & .wDescription {
-            ${tw`lg:text-black`}
+            ${tw`text-black`}
         }
 
         & .wLang {
-            ${tw`lg:bg-black lg:text-white`}
+            ${tw`bg-black text-white`}
         }
     }
 `;
@@ -179,5 +179,26 @@ export const ProfileButton = styled.button`
 
     &:hover {
         ${tw`bg-white text-black scale-105`}
+    }
+`;
+
+export const BlogGrid = styled.div`
+    ${tw`p-5 h-fit gap-4 grid grid-cols-1 lg:grid-cols-4 w-full`}
+`;
+
+export const BlogRow = styled.button`
+    ${tw`p-3 w-full rounded-lg flex flex-col gap-2 text-white transition-all ease-in-out duration-200 border-2 border-white`}
+
+    &:hover {
+        ${tw`bg-white cursor-pointer text-black border-black`}
+        transform: scale(0.99);
+    }
+`;
+
+export const BlogCategory = styled.div`
+    ${tw`bg-white rounded-2xl text-sm text-black cursor-pointer transition-all ease-in-out duration-150`}
+
+    & div {
+        ${tw`py-1 px-2`}
     }
 `;

@@ -12,17 +12,15 @@ function OpenSource() {
         <div css={tw``}>
             <CardTitle text={t('opensource.title')} />
             <div
-                css={tw`space-y-2 mb-3`}
+                css={tw`flex flex-col gap-2 items-center mb-3`}
             >
-                {data.map(work => (
-                    !work.fork && work.language && !work.name.toLowerCase().includes('solicode') && !work.name.toLowerCase().includes('soli') &&
+                {data.map(repo => (
+                    !repo.fork && repo.language && !repo.name.toLowerCase().includes('solicode') && !repo.name.toLowerCase().includes('soli') &&
                     <WorkRow
-                        key={work.name}
-                        href={work.html_url}
-                        target={'_blank'}
-                        css={tw`lg:border lg:border-white`}
+                        key={repo.name}
+                        onClick={() => window.open(repo.html_url, '_blank')}
+                        css={tw`w-full border border-white cursor-pointer`}
                     >
-
                         <div>
                             <div
                                 className={'wName'}
@@ -32,7 +30,7 @@ function OpenSource() {
                                     css={tw`capitalize`}
                                 >
                                     {/* @ts-ignore */}
-                                    {work.name.replaceAll('-', ' ')}
+                                    {repo.name.replaceAll('-', ' ')}
                                 </div>
 
                                 <div
@@ -41,7 +39,7 @@ function OpenSource() {
                                     <div
                                         css={tw`py-1 px-2`}
                                     >
-                                        {work.language}
+                                        {repo.language}
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +47,7 @@ function OpenSource() {
                             <div
                                 className={'wDescription'}
                                 css={tw`font-light`}
-                                dangerouslySetInnerHTML={{ __html: work.description ?? '<div></div>' }}
+                                dangerouslySetInnerHTML={{ __html: repo.description ?? '<div></div>' }}
                             />
                         </div>
                     </WorkRow>

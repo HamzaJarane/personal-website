@@ -1,10 +1,8 @@
 import { CardTitle, WorkRow, WorkContainer } from '@/helpers/StyledComponents';
 import tw from 'twin.macro';
 import { works } from '@/helpers/getWork';
-import { Tween, ScrollTrigger as ScrollTriggerContainer } from 'react-gsap';
-import { t } from 'i18next';
+import { ScrollTrigger as ScrollTriggerContainer } from 'react-gsap';
 import { useTranslation } from 'react-i18next';
-
 
 function Work() {
     const { t } = useTranslation();
@@ -20,8 +18,8 @@ function Work() {
                         scrub
                     >
                             <WorkRow
-                                href={work.link}
-                                target={work.link !== '#' ? '_blank' : '_self'}
+                                onClick={() => window.open(work.link, work.link !== '#' ? '_blank' : '_self')}
+                                css={tw`w-full`}
                             >
                                 <div>
                                     <img

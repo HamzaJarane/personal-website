@@ -1,0 +1,13 @@
+[
+    {
+        "file": "wg-easy-tuto.md",
+        "title": "WireGuard Easy (wg-easy): A Simple WireGuard VPN Server Web UI",
+        "slug": "wg-easy-tuto",
+        "categories": [
+            "VPN",
+            "Networking",
+            "Security"
+        ],
+        "description": "WireGuard Easy (wg-easy) is a user-friendly web interface for managing a WireGuard VPN server. This tool simplifies the process of setting up and managing a WireGuard VPN server through an intuitive web UI, making it accessible even for users without extensive networking knowledge."
+    }
+]

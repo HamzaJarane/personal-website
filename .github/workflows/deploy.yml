@@ -3,7 +3,7 @@ name: Deploy to hetzner over wireguard
 on:
   push:
     branches:
-      - main
+      - production
 
 jobs:
   deploy:

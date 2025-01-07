@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "github": "node scripts/setGithubInformations.cjs",
-    "build": "npm run github && tsc && vite build",
+    "github": "node scripts/setGithubInformation.cjs",
+    "blog": "node scripts/indexBlog.cjs",
+    "build": "npm run blog && npm run github && tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --quiet",
     "preview": "vite preview"
   },
@@ -32,7 +33,10 @@
     "react-dom": "^18.3.1",
     "react-gsap": "^3.2.1",
     "react-i18next": "^15.4.0",
+    "react-markdown": "^9.0.3",
+    "react-router-dom": "^7.1.1",
     "styled-components": "^6.1.11",
+    "swr": "^2.3.0",
     "vite-plugin-pwa": "^0.20.0"
   },
   "devDependencies": {
