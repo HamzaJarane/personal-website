@@ -9,7 +9,7 @@ import { Tween } from 'react-gsap';
 import { useTranslation } from 'react-i18next';
 
 function Profile() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const data = getProfileData();
     const profilePicture = `https://avatars.githubusercontent.com/u/${data.github.id}?v=${data.github.fetchedTime}`;
     return (
@@ -62,7 +62,7 @@ function Profile() {
                         <ProfileButton
                             onClick={() => {
                                 const link = document.createElement('a');
-                                link.href = `https://os.hamza.im/static/documents/Hamza%20Jarane's%20resume.pdf`;
+                                link.href = i18n.language === 'fr' ? `https://hamza.im/Francais.pdf` : `https://hamza.im/English.pdf`;
                                 link.download = t('profile.resume');
                                 link.click();
                             }}
