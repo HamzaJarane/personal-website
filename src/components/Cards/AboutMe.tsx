@@ -48,7 +48,7 @@ function AboutMe() {
             </CardDescription>
 
             <CardDescription>
-                WordPress, Laravel, NextJS, ReactJS, VueJS, Tailwind CSS.
+                WordPress, Laravel, NextJS, ReactJS, VueJS, NestJS, Tailwind CSS.
             </CardDescription>
         </div>
     )
