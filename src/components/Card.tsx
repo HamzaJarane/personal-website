@@ -7,7 +7,7 @@ import OpenSource from '@/components/Cards/OpenSource';
 
 function Card() {
     return (
-        <div css={tw`w-full p-3 lg:p-0 lg:w-[70%] lg:h-full lg:overflow-y-auto`}>
+        <div css={tw`w-full p-3 lg:p-0 lg:w-[60%] lg:h-full lg:overflow-y-auto`}>
             <AboutMe />
             <Experience />
             <Work />

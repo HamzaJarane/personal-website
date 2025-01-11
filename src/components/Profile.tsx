@@ -14,20 +14,21 @@ function Profile() {
     const profilePicture = `https://avatars.githubusercontent.com/u/${data.github.id}?v=${data.github.fetchedTime}`;
     return (
         data && <>
-            <img 
+            {/* <img 
                 src={backgroundImage} 
                 css={tw`fixed -top-2 z-10 lg:flex hidden h-screen lg:w-[30%]`} 
                 alt={"profileImage"} 
                 srcSet={backgroundImage} 
-            />
+            /> */}
             <div
-                css={tw`w-full lg:w-[30%] z-20 bg-cover bg-gradient-to-r from-black/30 to-black flex justify-center lg:justify-start lg:items-center lg:grid`}
+                css={tw`w-full lg:w-[30%] bg-cover bg-gradient-to-r from-black/30 to-black flex justify-center lg:justify-start lg:items-center lg:grid`}
             >
                 <div
-                    css={tw`p-10 gap-y-4 lg:fixed lg:top-1 lg:left-1`}
+                    css={tw`p-10 gap-y-4`}
                 >
                     <Tween from={{ x: '-300px' }} to={{ x: '0px', rotation: 360 }} duration={1} ease="back.out(1.7)" delay={1}>
                         <ProfileImage
+                            css={tw``}
                             src={profilePicture}
                             alt={"profilePicture"}
                             srcSet={profilePicture}

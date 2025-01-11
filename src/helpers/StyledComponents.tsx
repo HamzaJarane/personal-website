@@ -40,7 +40,7 @@ export const CardTitle = ({ text }: { text: string }) => {
 }
 
 export const ProfileImage = styled.img`
-    ${tw`rounded ring ring-black w-[190px]`}
+    ${tw`rounded ring ring-white w-[190px]`}
 `;
 
 export const FullName = styled.div`
