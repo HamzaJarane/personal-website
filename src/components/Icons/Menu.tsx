@@ -1,9 +1,9 @@
 import React from 'react'
 import tw from 'twin.macro';
 
-function Menu({ color = 'black', width = '40px', height = '7px' }: { color?: string, width?: string, height?: string }) {
+function Menu({ color = 'black', width = '30px', height = '5px', onClick }: { color?: string, width?: string, height?: string, onClick?: () => void }) {
     return (
-        <div css={tw`flex flex-col gap-1 cursor-pointer`}>
+        <div onClick={onClick} css={tw`flex flex-col gap-1 cursor-pointer`}>
             <div style={{ backgroundColor: color, width, height }} css={tw`rounded-full`}></div>
             <div style={{ backgroundColor: color, width, height }} css={tw`rounded-full`}></div>
             <div style={{ backgroundColor: color, width, height }} css={tw`rounded-full`}></div>

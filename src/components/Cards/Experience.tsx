@@ -9,7 +9,7 @@ function Experience() {
     const { t } = useTranslation();
 
     return (
-        <div css={tw`flex space-x-1 text-white`}>
+        <div css={tw`flex space-x-1 text-white`} id={'experience'}>
             <div>
 
             </div>

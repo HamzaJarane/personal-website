@@ -175,10 +175,10 @@ export const WorkRow = styled.div`
 `;
 
 export const ProfileButton = styled.button`
-    ${tw`bg-black text-white transition-all duration-150 ease-in-out rounded`}
+    ${tw`bg-white text-black transition-all duration-150 ease-in-out rounded border border-transparent`}
 
     &:hover {
-        ${tw`bg-white text-black scale-105`}
+        ${tw`bg-black text-white scale-105 border-white`}
     }
 `;
 

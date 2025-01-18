@@ -9,7 +9,7 @@ function OpenSource() {
     const data = getOpenSource();
     const { t } = useTranslation();
     return (
-        <div css={tw``}>
+        <div css={tw``} id={"open-source"}>
             <CardTitle text={t('opensource.title')} />
             <div
                 css={tw`flex flex-col gap-2 items-center mb-3`}

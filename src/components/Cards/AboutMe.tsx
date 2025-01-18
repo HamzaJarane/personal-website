@@ -18,7 +18,7 @@ function AboutMe() {
     }
 
     return (
-        <div>
+        <div id={"about-me"}>
             <CardTitle text={t('aboutme.title')} />
             <CardDescription>
                 <Trans

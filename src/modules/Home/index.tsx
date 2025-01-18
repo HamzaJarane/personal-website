@@ -16,7 +16,6 @@ export default function App() {
           </div>
         }
       >
-        <SideBar />
         <Profile />
         <Card />
       </Suspense>

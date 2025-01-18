@@ -46,5 +46,12 @@
     "opensource": {
         "title": "OpenSource."
     },
-    "country": "Morocco"
+    "country": "Morocco",
+    "nav": {
+        "about-me": "About me",
+        "experience": "Experience",
+        "work": "Work",
+        "open-source": "OpenSource",
+        "blog": "Blog"
+    }
 }

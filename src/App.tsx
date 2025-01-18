@@ -3,12 +3,22 @@ import React, { lazy, Suspense } from 'react';
 import tw from 'twin.macro';
 import '@/App.css';
 import './i18n';
+import SideBar from './components/SideBar';
 
-export const Layout = ({ children }: { children?: React.ReactNode }) => {
+export const Layout = ({ children, spaceTop = false, ignoreBlock = false }: { children?: React.ReactNode, spaceTop?: boolean, ignoreBlock?: boolean }) => {
   return (
-    <div css={tw`lg:flex grid text-white bg-black h-screen w-screen`}>
-      {children || <Outlet />}
-    </div>
+    <>
+      {spaceTop && (
+        <div css={tw`lg:hidden h-2`} />
+      )}
+      <div css={[
+          tw`lg:flex grid text-white bg-black`,
+          !ignoreBlock && tw`h-screen w-screen`,
+        ]}>
+        <SideBar />
+        {children || <Outlet />}
+      </div>
+    </>
   );
 };
 
@@ -52,8 +62,20 @@ export default function App() {
             </Layout>
           }
         />
-        <Route path='blog/:slug' element={<BlogPage />} />
-        <Route path="*" element={<div>404</div>} />
+        <Route 
+          path='blog/:slug' 
+          element={
+            <Layout spaceTop ignoreBlock>
+              <BlogPage />
+            </Layout>
+          }
+        />
+        <Route 
+          path="*" 
+          element={
+            <div>404</div>
+          } 
+        />
       </Route>
     )
   );

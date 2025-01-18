@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 function Work() {
     const { t } = useTranslation();
     return (
-        <div css={tw`pt-[100px] lg:pt-[60px]`}>
+        <div css={tw`pt-[100px] lg:pt-[60px]`} id={"work"}>
             <CardTitle text={t('work.title')} />
             <WorkContainer className={'workBox'} css={tw`overflow-hidden`}>
                 {works.map(work => (
