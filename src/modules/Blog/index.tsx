@@ -18,7 +18,7 @@ function Blog() {
                     </div>
                     <div css={tw`grid grid-cols-3 gap-2`}>
                         {page.categories.map((category) => (
-                            <BlogCategory>
+                            <BlogCategory className='blogCategory'>
                                 <div>{category}</div>
                             </BlogCategory>
                         ))}
