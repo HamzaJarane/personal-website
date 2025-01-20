@@ -4,6 +4,7 @@ import tw from 'twin.macro';
 import '@/App.css';
 import './i18n';
 import SideBar from './components/SideBar';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 export const Layout = ({ children, spaceTop = false, ignoreBlock = false }: { children?: React.ReactNode, spaceTop?: boolean, ignoreBlock?: boolean }) => {
   return (
@@ -15,6 +16,7 @@ export const Layout = ({ children, spaceTop = false, ignoreBlock = false }: { ch
           tw`lg:flex grid text-white bg-black`,
           !ignoreBlock && tw`h-screen w-screen`,
         ]}>
+        <div css={tw`lg:w-[58px]`} />
         <SideBar />
         {children || <Outlet />}
       </div>
@@ -81,6 +83,8 @@ export default function App() {
   );
 
   return (
-    <RouterProvider router={router} />
+    <LanguageProvider>
+      <RouterProvider router={router} />
+    </LanguageProvider>
   );
 }

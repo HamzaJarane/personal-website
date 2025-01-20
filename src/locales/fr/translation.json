@@ -46,5 +46,13 @@
     "opensource": {
         "title": "OpenSource."
     },
-    "country": "Maroc"
+    "country": "Maroc",
+    "nav": {
+        "about-me": "À propos de moi",
+        "experience": "Expérience",
+        "work": "Travail",
+        "open-source": "Open Source",
+        "blog": "Blog",
+        "home": "Accueil"
+    }
 }

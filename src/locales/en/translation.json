@@ -52,6 +52,7 @@
         "experience": "Experience",
         "work": "Work",
         "open-source": "OpenSource",
-        "blog": "Blog"
+        "blog": "Blog",
+        "home": "Home"
     }
 }

@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import tw, { styled, css } from 'twin.macro';
 import Menu from './Icons/Menu';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-const Nav = styled.button`
+const Nav = styled.button<{ active?: boolean }>`
     ${tw`bg-white text-black border-2 border-black flex justify-center items-center rounded-2xl p-2`}
-
+    ${(({ active }) => active && css`
+        ${tw`bg-black text-white transition-all ease-in-out duration-300`}
+        
+        &:hover {
+            ${tw`scale-105`}
+        }
+    `)}
     &:hover {
         ${tw`bg-black text-white scale-105 transition-all ease-in-out duration-300`}
     }
@@ -40,15 +47,15 @@ const Nav = styled.button`
 //     `}
 // `;
 
-const SideBarSection = styled.div<{ menuOpen?: boolean }>`
+const SideBarSection = styled.div<{ menuOpen?: boolean, isBlogPage?: boolean }>`
   ${tw`fixed z-20 flex flex-col gap-4 p-3 overflow-hidden`}
   transition: height 0.3s ease-in-out, width 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
   /* Desktop styles */
-  ${tw`lg:relative lg:bg-white/80 lg:w-[65px] `}
-  
+  ${tw`top-0 lg:fixed lg:h-screen lg:bg-white lg:w-[58px]`}
+
   /* Mobile styles */
-  ${tw`h-[40px] bg-transparent lg:h-auto`}
+  ${tw`h-[40px] bg-transparent`}
   width: 100%;
 
   /* Desktop hover state */
@@ -56,7 +63,11 @@ const SideBarSection = styled.div<{ menuOpen?: boolean }>`
     &:hover {
       ${tw`w-[300px] bg-white`}
       > :nth-child(2) {
-        ${tw`flex`}
+        ${tw`opacity-100`}
+      }
+
+      ~ .home {
+        ${tw`scale-90 border-2 border-white rounded-xl`}
       }
     }
   }
@@ -64,50 +75,61 @@ const SideBarSection = styled.div<{ menuOpen?: boolean }>`
   /* Mobile open state */
   ${({ menuOpen }) => menuOpen && css`
     ${tw`bg-white`}
-    height: 350px;
+    height: 450px;
 
     & > :nth-child(1) {
       ${tw`!text-black`}
     }
     
     & > :nth-child(2) {
-      ${tw`flex`}
+      ${tw`opacity-100`}
     }
   `}
 `;
 
 function SideBar() {
     const { t } = useTranslation();
+    const { currentLanguage, changeLanguage } = useLanguage();
     const navigate = useNavigate();
     const location = useLocation();
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const Buttons = [
+    const Buttons = useMemo(() => [
         {
             name: t('nav.about-me'),
             id: 'about-me',
             link: '/',
+            disabled: location.pathname.includes('blog'),
         },
         {
             name: t('nav.experience'),
             id: 'experience',
             link: '/',
+            disabled: location.pathname.includes('blog'),
         },
         {
             name: t('nav.work'),
             id: 'work',
-            link: '/',   
+            link: '/',
+            disabled: location.pathname.includes('blog'),
         },
         {
             name: t('nav.open-source'),
             id: 'open-source',
-            link: '/',   
+            link: '/',
+            disabled: location.pathname.includes('blog'),
+        },
+        {
+            name: t('nav.home'),
+            link: '/',
+            disabled: location.pathname === '/',
         },
         {
             name: t('nav.blog'),
             link: '/blog',
+            disabled: location.pathname === '/blog',
         },
-    ];
+    ], [location.pathname]);
 
     const onClick = (nav: (typeof Buttons)[number]) => {
         if(!nav?.id) {
@@ -138,15 +160,38 @@ function SideBar() {
                 />
             </div>
 
-            <div css={tw`flex-col gap-4 hidden`}>
-                {Buttons.map((nav) => (
+            <div 
+                css={tw`flex flex-col gap-4 opacity-0 transition-all ease-in-out duration-300 h-full`}
+            >
+                {Buttons.filter((btn) => !btn.disabled).map((nav) => (
                     <Nav
                         onClick={() => onClick(nav)}
                     >
                         {nav.name} 
                     </Nav>
                 ))}
+
+                <div
+                    css={tw`mt-auto flex gap-2`}
+                >
+                    <Nav
+                        css={tw`w-full`}
+                        active={currentLanguage === 'en'}
+                        onClick={() => changeLanguage('en')}
+                    >
+                        English 
+                    </Nav>
+                    <Nav
+                        css={tw`w-full`}
+                        active={currentLanguage === 'fr'}
+                        onClick={() => changeLanguage('fr')}
+                    >
+                        Francais
+                    </Nav>
+                </div>
             </div>
+
+
         </SideBarSection>
     )
 }

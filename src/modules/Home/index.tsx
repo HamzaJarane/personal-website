@@ -8,7 +8,7 @@ const SideBar = lazy(() => import('@/components/SideBar'));
 
 export default function App() {
   return (
-    <div css={tw`lg:flex grid text-white bg-black h-screen w-screen`}>
+    <div className='home' css={tw`lg:flex grid text-white bg-black h-screen w-screen transition-all ease-in-out duration-300`}>
       <Suspense
         fallback={
           <div css={tw`h-screen w-screen flex justify-center items-center`}>
