@@ -10,13 +10,9 @@
 
 WireGuard Easy (wg-easy) is a user-friendly web interface for managing a WireGuard VPN server. This tool simplifies the process of setting up and managing a WireGuard VPN server through an intuitive web UI, making it accessible even for users without extensive networking knowledge.
 
-
-
 ## What is WireGuard Easy?
 
 WireGuard Easy is an all-in-one solution that combines the robust capabilities of WireGuard with an easy-to-use web interface. It simplifies the process of installing and managing VPN clients, making it accessible for both beginners and seasoned IT professionals. Whether you’re managing a small office network or a global team, WireGuard Easy ensures secure communication with minimal effort.
-
-
 
 ## Key Features
 
@@ -35,15 +31,12 @@ WireGuard Easy comes packed with features that make it a standout choice for VPN
   <img width="600" src="/content/wireguard/screenshot.png" />
 </div>
 
-
-
 ## System Requirements
 
 To deploy WireGuard Easy, ensure the following:
 
 - A Linux host with a modern kernel supporting WireGuard.
 - Docker installed on the host.
-
 
 
 ## Installation Guide
@@ -60,7 +53,7 @@ exit
 
 Log back into your session to apply changes.
 
-### Step 3: Generate password:
+### Step 2: Generate password:
 
 Generating bcrypt password hashes with Docker is simple. Here’s how:
 
@@ -114,7 +107,7 @@ This modification ensures the YAML file correctly parses the hash. The above exa
 docker run ghcr.io/wg-easy/wg-easy wgpw 'foobar123'
 ```
 
-### Step 2: Deploy WireGuard Easy
+### Step 3: Deploy WireGuard Easy
 
 Run the following command to set up WireGuard Easy:
 
