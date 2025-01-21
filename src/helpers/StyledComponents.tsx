@@ -187,7 +187,7 @@ export const BlogGrid = styled.div`
 `;
 
 export const BlogRow = styled.button`
-    ${tw`p-3 w-full rounded-lg flex flex-col gap-2 text-white transition-all ease-in-out duration-200 border-2 border-white`}
+    ${tw`p-3 w-full rounded-lg flex flex-col justify-evenly gap-2 text-white transition-all ease-in-out duration-200 border-2 border-white`}
 
     &:hover {
         ${tw`bg-white cursor-pointer text-black border-black scale-[0.99]`}

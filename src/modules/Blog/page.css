@@ -17,6 +17,12 @@
   word-wrap: break-word;
 }
 
+.markdown-image-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .markdown-body .octicon {
   display: inline-block;
   fill: currentColor;

@@ -5,7 +5,9 @@ import Markdown from 'react-markdown'
 import { getPage } from '@/helpers/getBlog';
 import useSWR from 'swr'
 import { Loading } from '@/App';
+import rehypeRaw from 'rehype-raw'
 import './page.css';
+
 function Page() {
     const { slug } = useParams() as { slug: string };
     const { data, error, isLoading } = useSWR(slug, getPage);
@@ -21,7 +23,10 @@ function Page() {
     return (
         <div css={tw`flex justify-center items-center `}>
             <div css={tw`w-[90%] lg:w-[70%] py-6`}>
-                <Markdown className={'markdown-body'}>
+                <Markdown 
+                    rehypePlugins={[rehypeRaw]}
+                    className={'markdown-body'}
+                >
                     {data}
                 </Markdown>
             </div>

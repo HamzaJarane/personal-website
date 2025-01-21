@@ -16,7 +16,14 @@ function Blog() {
                     <div css={tw`text-sm`}>
                         {page.description.length > 140 ? page.description.split('').splice(0, 140).join('')+'...' : page.description}
                     </div>
-                    <div css={tw`grid grid-cols-3 gap-2`}>
+                    <div 
+                        css={[
+                            tw`grid gap-2`,
+                            page.categories.length >= 3 ? tw`grid-cols-3` : 
+                            page.categories.length === 2 ? tw`grid-cols-2` : 
+                            page.categories.length === 1 && tw`grid-cols-1` 
+                        ]}
+                    >
                         {page.categories.map((category) => (
                             <BlogCategory className='blogCategory'>
                                 <div>{category}</div>
