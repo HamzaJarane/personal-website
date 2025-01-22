@@ -54,5 +54,9 @@
         "open-source": "Open Source",
         "blog": "Blog",
         "home": "Accueil"
+    },
+    "blog": {
+        "author": "Auteur",
+        "you-might-also-like": "Vous pourriez également aimer"
     }
 }
