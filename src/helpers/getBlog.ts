@@ -29,3 +29,10 @@ export async function getPage(slug: string): Promise<string | null> {
         throw error;
     }
 }
+
+export function getBlogSettings () {
+    return {
+        commentsRepo: 'HamzaJarane/blog-comments',
+        commentsClientJS: 'https://utteranc.es/client.js',
+    };
+};

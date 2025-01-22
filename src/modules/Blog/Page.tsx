@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import tw from 'twin.macro';
 import Markdown from 'react-markdown'
@@ -7,9 +7,10 @@ import useSWR from 'swr'
 import { Loading } from '@/App';
 import rehypeRaw from 'rehype-raw'
 import './page.css';
-import { BlogCategory, BlogGrid, BlogRow } from '@/helpers/StyledComponents';
+import { BlogCategory, BlogRow } from '@/helpers/StyledComponents';
 import FooterProfileCard from '@/components/Cards/FooterProfileCard';
 import { useTranslation } from 'react-i18next';
+import UtterancesComments from '@/components/Blog/utterancesComments';
 
 function Page() {
     const { slug } = useParams() as { slug: string };
@@ -42,6 +43,10 @@ function Page() {
                 css={tw`mt-10 w-[90%] lg:w-[70%]`}
             >
                 <FooterProfileCard />
+            </div>
+
+            <div css={tw`w-[90%] lg:w-[70%]`}>
+                <UtterancesComments />
             </div>
 
             <div css={tw`text-center text-3xl font-semibold`}>
