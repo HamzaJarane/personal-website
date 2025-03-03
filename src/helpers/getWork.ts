@@ -37,7 +37,7 @@ export const works: IWork[] = [
     },
     {
         name: 'Walkin.City',
-        link: 'https://walkin.city',
+        link: 'https://walkincity.hamza.im',
         image: walkincity,
         description: i18n.t('work.walkincity'),
         languages: ['Next.JS', 'Tailwind CSS', 'Socket.io', 'MySQL', 'Zustand', 'NextAuth', 'Three.JS'],
