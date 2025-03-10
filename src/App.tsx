@@ -1,23 +1,43 @@
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Outlet } from 'react-router-dom';
-import React, { lazy, Suspense } from 'react';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Outlet, Link } from 'react-router-dom';
+import React, { lazy, Suspense, useEffect } from 'react';
 import tw from 'twin.macro';
 import '@/App.css';
 import './i18n';
 import SideBar from './components/SideBar';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const Layout = ({ children, spaceTop = false, ignoreBlock = false }: { children?: React.ReactNode, spaceTop?: boolean, ignoreBlock?: boolean }) => {
+  const [isInIframe, setIsInIframe] = React.useState(false);
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    setIsInIframe(window.self !== window.top);
+  }, []);
+  
   return (
     <>
       {spaceTop && (
         <div css={tw`lg:hidden h-2`} />
       )}
+      {isInIframe && (
+          <div css={tw`text-white flex justify-center items-center p-3`}>
+            <Link css={tw`text-xl font-semibold border rounded-full px-3 py-1 hover:bg-white hover:text-black`} to={'/blog'}>
+              {t('nav.home')}
+            </Link>
+          </div>
+      )}
       <div css={[
           tw`lg:flex grid text-white bg-black`,
           !ignoreBlock && tw`h-screen w-screen`,
         ]}>
-        <div css={tw`lg:w-[58px]`} />
-        <SideBar />
+        {!isInIframe && (
+          <>
+            <div css={tw`lg:w-[58px]`} />
+            <SideBar />
+          </>
+        )}
         {children || <Outlet />}
       </div>
     </>
