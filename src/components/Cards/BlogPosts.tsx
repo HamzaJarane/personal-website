@@ -40,7 +40,7 @@ function BlogPosts() {
             </BlogGrid>
             <div css={tw`flex justify-center items-center mb-5`}>
                 <ProfileButton onClick={() => navigate(`/blog`)} css={tw`p-3 font-semibold w-[219px]`}>
-                    See More
+                    {t('blog.see_more')}
                 </ProfileButton>
             </div>
         </div>

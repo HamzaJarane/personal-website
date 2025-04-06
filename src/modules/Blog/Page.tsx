@@ -58,7 +58,7 @@ function Page() {
             </div>
 
             <div css={tw`w-[90%] lg:w-[70%] my-10 grid grid-cols-1 lg:grid-cols-3 gap-3`}>
-                {[...pages].reverse().slice(0, 3).map((page) => (
+                {[...pages].reverse().filter((page) => page.slug !== pageMetaData.slug).slice(0, 3).map((page) => (
                     <BlogRow key={page.slug} onClick={() => gotoPage(page.slug)}>
                         <div css={tw`font-semibold text-2xl text-center w-full`}>{page.title}</div>
                         <div css={tw`text-sm`}>
