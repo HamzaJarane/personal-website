@@ -4,7 +4,6 @@ import '@/App.css';
 
 const Profile = lazy(() => import('@/components/Profile'));
 const Card = lazy(() => import('@/components/Card'));
-const SideBar = lazy(() => import('@/components/SideBar'));
 
 export default function App() {
   return (

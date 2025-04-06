@@ -1,8 +1,7 @@
+[//]: # "published_at: 2025-01-21"
 [//]: # "title: Nginx Proxy Manager: Web Server Management"
 [//]: # "categories: Server,Free & OpenSource"
 [//]: # "description: Managing web servers and configuring proxies can be a daunting task, especially for those without deep technical knowledge. Nginx Proxy Manager (NPM) simplifies this process by offering a user-friendly interface to configure and manage reverse proxies, SSL certificates, and redirections. This blog post explores what Nginx Proxy Manager is, its features, and how to get started with it"
-
-# Simplifying Web Server Management with Nginx Proxy Manager
 
 <div class="markdown-image-center" style="margin-top:40px;margin-bottom:40px;">
    <img width="200" src="/content/nginx-proxy-manager/logo.svg" />

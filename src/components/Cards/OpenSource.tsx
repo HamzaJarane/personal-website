@@ -9,13 +9,13 @@ function OpenSource() {
     const data = getOpenSource();
     const { t } = useTranslation();
     return (
-        <div css={tw``} id={"open-source"}>
+        <div css={tw``}>
             <CardTitle text={t('opensource.title')} />
             <div
                 css={tw`flex flex-col gap-2 items-center mb-3`}
             >
                 {data.map(repo => (
-                    !repo.fork && repo.language && !repo.name.toLowerCase().includes('solicode') && !repo.name.toLowerCase().includes('soli') &&
+                    !repo.fork && repo.language && repo.description &&
                     <WorkRow
                         key={repo.name}
                         onClick={() => window.open(repo.html_url, '_blank')}

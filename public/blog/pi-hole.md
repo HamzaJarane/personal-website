@@ -1,8 +1,7 @@
+[//]: # "published_at: 2025-01-22"
 [//]: # "title: Pi-hole: The Ultimate Network Ad Blocker"
 [//]: # "categories: Server,Networking,Security,OpenSource"
 [//]: # "description: Pi-hole, a network-level ad blocker that acts as a DNS sinkhole, blocking ads for every device connected to your network. Unlike browser-based ad blockers, Pi-hole provides protection across your entire network, ensuring a cleaner, faster, and more private online experience."
-
-# Pi-hole: The Ultimate Network Ad Blocker
 
 <div class="markdown-image-center" style="margin-top:10px;margin-bottom:10px;">
   <img width="150" src="/content/pi-hole/logo.png" />

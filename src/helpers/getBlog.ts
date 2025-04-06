@@ -5,6 +5,11 @@ export function getBlogPages(): typeof blogPages {
     return data;
 }
 
+export function getPageMetaBySlug(slug: string) {
+    const pages = getBlogPages();
+    return pages.find((page) => page.slug.trim().toLowerCase() === slug.trim().toLowerCase());
+}
+
 export async function getPage(slug: string): Promise<string | null> {
     try {
         if (!slug) {

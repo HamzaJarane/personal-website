@@ -56,6 +56,9 @@
         "home": "Accueil"
     },
     "blog": {
+        "title": "Blog.",
+        "published_at": "Publié à",
+        "see_more": "Voir plus",
         "author": "Auteur",
         "you-might-also-like": "Vous pourriez également aimer"
     }

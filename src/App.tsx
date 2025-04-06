@@ -1,15 +1,14 @@
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Outlet, Link } from 'react-router-dom';
-import React, { lazy, Suspense, useEffect } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import tw from 'twin.macro';
 import '@/App.css';
 import './i18n';
 import SideBar from './components/SideBar';
 import { LanguageProvider } from './contexts/LanguageContext';
-import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 export const Layout = ({ children, spaceTop = false, ignoreBlock = false }: { children?: React.ReactNode, spaceTop?: boolean, ignoreBlock?: boolean }) => {
-  const [isInIframe, setIsInIframe] = React.useState(false);
+  const [isInIframe, setIsInIframe] = useState(false);
   const { t } = useTranslation();
 
   useEffect(() => {

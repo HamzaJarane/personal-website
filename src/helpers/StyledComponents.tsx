@@ -182,9 +182,10 @@ export const ProfileButton = styled.button`
     }
 `;
 
-export const BlogGrid = styled.div`
-    ${tw`p-5 h-fit gap-4 grid grid-cols-1 lg:grid-cols-4 w-full`}
-`;
+export const BlogGrid = styled.div<{ blog?: boolean }>(({ blog = true }) => [
+    tw`p-5 h-fit gap-4 grid grid-cols-1 w-full`,
+    blog ? tw`lg:grid-cols-4` : tw`lg:grid-cols-2`,
+]);
 
 export const BlogRow = styled.button`
     ${tw`p-3 w-full rounded-lg flex flex-col justify-evenly gap-2 text-white transition-all ease-in-out duration-200 border-2 border-white`}

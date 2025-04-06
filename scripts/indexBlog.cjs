@@ -14,14 +14,18 @@ for (let filePath of files) {
     const categories = lines.find((e) => e.includes('[//]: # "categories:'))?.replace('[//]: # "categories:', '')?.trim()?.replace('"', '')?.split(',');
     const title = lines.find((e) => e.startsWith('[//]: # "title:'))?.replace('[//]: # "title:', '')?.trim()?.replace('"', '');
     const description = lines.find((e) => e.startsWith('[//]: # "description:'))?.replace('[//]: # "description:', '')?.trim()?.replace('"', '');
+    const published_at = lines.find((e) => e.startsWith('[//]: # "published_at:'))?.replace('[//]: # "published_at:', '')?.trim()?.replace('"', '');
 
     page.file = filePath;
     page.title = title;
     page.slug = filePath.replace('.md', '');
     page.categories = categories;
     page.description = description;
+    page.published_at = published_at;
 
     blogIndexerFile.push(page);
 }
+
+blogIndexerFile.sort((a, b) => new Date(a.published_at) - new Date(b.published_at));
 
 fs.writeFileSync(blogIndexerFilePath, JSON.stringify(blogIndexerFile));

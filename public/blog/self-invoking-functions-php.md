@@ -1,8 +1,7 @@
+[//]: # "published_at: 2025-01-23"
 [//]: # "title: Self-invoking functions in php"
 [//]: # "categories: Programming"
 [//]: # "description: Self-invoking functions, also known as Immediately Invoked Function Expressions (IIFEs), are a common pattern in programming languages like JavaScript. However, in PHP, they are less discussed but equally useful in certain scenarios. Let’s dive into what self-invoking functions are, how they work in PHP, and why you might use them"
-
-# Self-Invoking Functions in PHP
 
 A self-invoking function is a function that is executed immediately after it is defined. This pattern can be used to encapsulate logic, avoid polluting the global namespace, or execute initialization code in a clean and structured way.
 
