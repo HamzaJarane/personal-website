@@ -15,21 +15,21 @@ interface IWork {
 
 export const works: IWork[] = [
     {
-        name: 'Rancy Hotels',
+        name: 'Rancy Hotels (Closed source)',
         link: '#',
         image: rancyImage,
         description: i18n.t('work.rancy'),
         languages: ['WordPress', 'Laravel', 'Filament', 'Livewire', 'OOP', 'Tailwind CSS', 'CMI'],
     },
     {
-        name: 'Paulrom Hosting',
+        name: 'Paulrom Hosting (Closed source)',
         link: '#',
         image: paulromhosting,
         description: i18n.t('work.paulromhosting'),
         languages: ['React.JS', 'Tailwind CSS', 'Laravel', 'PayPal', 'Stripe', 'Docker'],
     },
     {
-        name: 'Links Event',
+        name: 'Links Event (Closed source)',
         link: '#',
         image: linksevent,
         description: i18n.t('work.linksevent'),

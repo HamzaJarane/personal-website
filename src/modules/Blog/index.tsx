@@ -10,7 +10,7 @@ function Blog() {
     
     return (
         <BlogGrid>
-            {pages.map((page) => (
+            {[...pages].reverse().map((page) => (
                 <BlogRow key={page.slug} onClick={() => gotoPage(page.slug)}>
                     <div css={tw`font-semibold text-2xl text-center w-full`}>{page.title}</div>
                     <div css={tw`text-sm`}>
