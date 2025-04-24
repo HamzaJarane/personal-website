@@ -24,7 +24,7 @@ function Experience() {
                         >
                             <div className={'eHero-1'}>
                                 <div>{experience.role} - <span>{experience.type}</span></div>
-                                <div>{experience.from} - {experience.to}</div>
+                                {/* <div>{experience.from} - {experience.to}</div> */}
                             </div>
 
                             <div className={'eHero-2'}>
