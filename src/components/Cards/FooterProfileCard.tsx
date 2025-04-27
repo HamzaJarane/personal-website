@@ -27,7 +27,7 @@ function FooterProfileCard() {
                 <FullName>
                     Hamza Jarane
                 </FullName>
-                <div>Web developer, DevOps</div>
+                <div>Software developer, DevOps</div>
                 <div css={tw`flex gap-2`}>
                     <Field
                         href={data.github.html_url}
