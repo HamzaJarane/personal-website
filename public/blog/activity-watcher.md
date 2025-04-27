@@ -3,8 +3,6 @@
 [//]: # "categories: Time Management,Free & OpenSource"
 [//]: # "description: ActivityWatch is a powerful open-source time tracking application designed to give you actionable insights into your daily activities"
 
-# ActivityWatch: An Open-Source Time Tracking Tool
-
 <div class="markdown-image-center" style="margin-top:40px;margin-bottom:40px;">
     <img width="800" src="/content/activity-watcher/banner.png" />
 </div>
