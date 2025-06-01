@@ -1,4 +1,4 @@
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Outlet, Link } from 'react-router-dom';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Outlet, Link, useLocation } from 'react-router-dom';
 import React, { lazy, Suspense, useEffect, useState } from 'react';
 import tw from 'twin.macro';
 import SideBar from './components/SideBar';
@@ -10,10 +10,11 @@ import './i18n';
 export const Layout = ({ children, spaceTop = false, ignoreBlock = false }: { children?: React.ReactNode, spaceTop?: boolean, ignoreBlock?: boolean }) => {
   const [isInIframe, setIsInIframe] = useState(false);
   const { t } = useTranslation();
+  const location = useLocation();
 
   useEffect(() => {
-    setIsInIframe(window.self !== window.top);
-  }, []);
+    setIsInIframe(location.pathname.startsWith('/blog') && window.self !== window.top);
+  }, [location]);
   
   return (
     <>
