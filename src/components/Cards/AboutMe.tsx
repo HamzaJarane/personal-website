@@ -1,57 +1,138 @@
-import React from 'react'
-import { CardTitle, CardDescription, CardDescriptionHighLight } from '@/helpers/StyledComponents';
-import tw from 'twin.macro';
-import { Trans, useTranslation } from 'react-i18next';
+import React, { useRef } from 'react';
+import tw, { css } from 'twin.macro';
+import { motion, useInView } from 'framer-motion';
+import styled from '@emotion/styled';
+import Ticker from '../Ticker';
+
+export const TextHighlight = styled(motion.span)`
+  ${tw`text-[120px] text-center font-bold block mb-6 text-black uppercase`}
+  opacity: 0;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+`;
+
+export const Container = tw.div`
+  h-[90vh]
+  overflow-y-auto
+  snap-y
+  snap-mandatory
+  scroll-smooth
+  relative
+  p-6
+`;
+
+export const Section = styled(motion.section)`
+  ${tw`
+    h-[80vh]
+    flex
+    flex-col
+    justify-center
+    items-center
+    snap-start
+    relative
+  `}
+`;
+
+export const ScrollButton = styled(motion.button)`
+  ${tw`
+    absolute
+    bottom-8
+    left-1/2
+    transform
+    -translate-x-1/2
+    bg-black
+    text-white
+    px-6
+    py-3
+    rounded-full
+    font-semibold
+    hover:bg-gray-800
+    transition-colors
+  `}
+`;
+
+export const textVariants = {
+  hidden: { 
+    opacity: 0,
+    scale: 2, // 0.3
+    rotate: 0, // -180
+    y: 100
+  },
+  visible: { 
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    y: 0,
+    transition: { 
+      duration: 1.2,
+      ease: [0.6, 0.01, -0.05, 0.95],
+      type: "spring",
+      bounce: 0.4
+    }
+  }
+};
 
 function AboutMe() {
-    const { t } = useTranslation();
-    function getAge(birthDate: string) {
-        const today = new Date();
-        const birth = new Date(birthDate);
-        const monthDiff = today.getMonth() - birth.getMonth();
-        
-        let age = today.getFullYear() - birth.getFullYear();
-        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-            age--;
-        }
-        return age;
-    }
+    const scrollToNext = (sectionId: string) => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     return (
-        <div id={"about-me"}>
-            <CardTitle text={t('aboutme.title')} />
-            <CardDescription>
-                <Trans
-                    i18nKey="aboutme.0"
-                    values={{ name: 'Hamza', age: getAge('2003-10-26'), country: t('country') }}
-                    components={[<CardDescriptionHighLight />, <CardDescriptionHighLight />, <CardDescriptionHighLight />]}
-                />
-            </CardDescription>
+        <Ticker content='ABOUT ME. ABOUT ME. ABOUT ME. ABOUT ME. ABOUT ME.'>
+            <Container>
+                <Section>
+                    <TextHighlight
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={textVariants}
+                        whileHover={{ scale: 1.05, color: '#0066ff' }}
+                    >
+                        hi, i'm <span id="hamza-name" css={tw`underline`}>hamza</span>.
+                    </TextHighlight>
+                </Section>
 
-            <CardDescription>
-                <Trans
-                    i18nKey="aboutme.1"
-                    components={[<CardDescriptionHighLight />, <CardDescriptionHighLight />, <CardDescriptionHighLight />, <CardDescriptionHighLight />]}
-                />
-            </CardDescription>
+                <Section>
+                    <TextHighlight
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={textVariants}
+                        css={tw`!text-[80px]`}
+                        whileHover={{ scale: 1.05, color: '#0066ff' }}
+                    >
+                        i'm a 21 year old from morocco.
+                    </TextHighlight>
+                </Section>
 
-            <CardDescription>
-                <CardDescriptionHighLight css={tw`text-xl underline`}>{t('aboutme.2')}</CardDescriptionHighLight>
-            </CardDescription>
+                <Section>
+                    <TextHighlight
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={textVariants}
+                        css={tw`!text-[80px]`}
+                        whileHover={{ scale: 1.05, color: '#0066ff' }}
+                    >
+                        i'm a software developer.
+                    </TextHighlight>
+                </Section>
 
-            <CardDescription>
-                TypeScript, JavaScript, Kotlin, PHP.
-            </CardDescription>
-
-            <CardDescription>
-                <CardDescriptionHighLight css={tw`text-xl underline`}>{t('aboutme.3')}</CardDescriptionHighLight>
-            </CardDescription>
-
-            <CardDescription>
-                WordPress, Laravel, NextJS, ReactJS, VueJS, NestJS, Tailwind CSS.
-            </CardDescription>
-        </div>
-    )
+                <Section css={tw`!h-[80vh]`}>
+                    <TextHighlight
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={textVariants}
+                        css={tw`!text-[80px]`}
+                        whileHover={{ scale: 1.05, color: '#0066ff' }}
+                    >
+                        i create things in my free time.
+                    </TextHighlight>
+                </Section>
+            </Container>
+        </Ticker>
+    );
 }
 
 export default AboutMe;

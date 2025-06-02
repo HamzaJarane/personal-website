@@ -6,6 +6,7 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import { useTranslation } from 'react-i18next';
 import '@/App.css';
 import './i18n';
+import CustomCursor from './components/Cursor';
 
 export const Layout = ({ children, spaceTop = false, ignoreBlock = false }: { children?: React.ReactNode, spaceTop?: boolean, ignoreBlock?: boolean }) => {
   const [isInIframe, setIsInIframe] = useState(false);
@@ -104,6 +105,7 @@ export default function App() {
 
   return (
     <LanguageProvider>
+      <CustomCursor />
       <RouterProvider router={router} />
     </LanguageProvider>
   );

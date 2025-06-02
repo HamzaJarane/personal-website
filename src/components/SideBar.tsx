@@ -52,7 +52,7 @@ const SideBarSection = styled.div<{ menuOpen?: boolean, isBlogPage?: boolean }>`
   transition: height 0.3s ease-in-out, width 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
   /* Desktop styles */
-  ${tw`top-0 lg:fixed lg:h-screen lg:bg-white lg:w-[58px]`}
+  ${tw`top-0 lg:fixed lg:h-screen lg:bg-white border-r-black border-r-[1px] lg:w-[58px]`}
 
   /* Mobile styles */
   ${tw`h-[40px] bg-transparent`}
