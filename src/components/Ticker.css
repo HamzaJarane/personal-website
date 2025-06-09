@@ -1,8 +1,3 @@
-@font-face {
-  font-family: "Oswald";
-  src: url("../assets/fonts/Oswald-Regular.ttf");
-}
-
 #ticker-content {
   font-family: 'Oswald', sans-serif;
 }

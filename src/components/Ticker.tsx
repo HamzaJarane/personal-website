@@ -2,6 +2,7 @@ import tw from "twin.macro";
 import { motion } from "framer-motion";
 import './Ticker.css';
 import { useState, ReactNode } from "react";
+import { CSSProp } from "styled-components";
 
 const TickerContainer = motion(tw.div`
   w-full
@@ -9,7 +10,6 @@ const TickerContainer = motion(tw.div`
   overflow-hidden
   whitespace-nowrap
   border-b-[1px]
-  border-b-black
   transition-all
 `);
 
@@ -31,27 +31,32 @@ const ExpandedContent = motion(tw.div`
 interface TickerProps {
     content: string;
     children: ReactNode;
+    css?: CSSProp;
 }
 
-export default function Ticker({ content, children }: TickerProps) {
+export default function Ticker({ content, children, css }: TickerProps) {
     const [isExpanded, setIsExpanded] = useState(false);
 
     return (
         <TickerContainer
             animate={{
-                height: isExpanded ? "100%" : "9rem",
+                height: isExpanded ? "100vh" : "9rem",
+                ...(isExpanded ? {
+                    position: 'fixed',
+                    top: 0
+                } : {})
             }}
             transition={{
-                // type: "spring",
+                type: "spring",
                 stiffness: 100,
                 damping: 20
             }}
+            css={css}
         >
             <TickerContent onClick={() => setIsExpanded(!isExpanded)} id="ticker-content">
                 {content}
             </TickerContent>
             <motion.div
-                id="THIS"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isExpanded ? 1 : 0 }}
                 transition={{ duration: 0.3 }}

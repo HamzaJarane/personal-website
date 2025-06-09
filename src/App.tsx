@@ -1,45 +1,72 @@
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Outlet, Link, useLocation } from 'react-router-dom';
-import React, { lazy, Suspense, useEffect, useState } from 'react';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Outlet, useLocation } from 'react-router-dom';
+import React, { lazy, Suspense } from 'react';
 import tw from 'twin.macro';
-import SideBar from './components/SideBar';
-import { LanguageProvider } from './contexts/LanguageContext';
-import { useTranslation } from 'react-i18next';
-import '@/App.css';
-import './i18n';
 import CustomCursor from './components/Cursor';
+import bgImage from '@/assets/images/bg.jpg';
+import TopBar from './components/TopBar';
+import { AnimatePresence, motion, Transition, Variants } from 'framer-motion';
+import '@/App.css';
+import Footer from './components/Footer';
 
 export const Layout = ({ children, spaceTop = false, ignoreBlock = false }: { children?: React.ReactNode, spaceTop?: boolean, ignoreBlock?: boolean }) => {
-  const [isInIframe, setIsInIframe] = useState(false);
-  const { t } = useTranslation();
   const location = useLocation();
+  const pageVariants: Variants = {
+    initial: {
+      scale: 0.8,
+      border: "10px solid white",
+      borderRadius: "0.75rem",
+    },
+    animate: {
+      scale: 1,
+      border: "none",
+      borderRadius: "0",
+    },
+    exit: {
+      scale: 0.8,
+      border: "10px solid white",
+      borderRadius: "0.75rem",
+    }
+  };
 
-  useEffect(() => {
-    setIsInIframe(location.pathname.startsWith('/blog') && window.self !== window.top);
-  }, [location]);
-  
+  const pageTransition: Transition = {
+    duration: 0.7,
+    ease: "easeInOut",
+    scale: {
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1],
+      type: "tween",
+      enter: { duration: 0.1 },
+    }
+  };
+
   return (
     <>
       {spaceTop && (
         <div css={tw`lg:hidden h-2`} />
       )}
-      {isInIframe && (
-          <div css={tw`text-white flex justify-center items-center p-3`}>
-            <Link css={tw`text-xl font-semibold border rounded-full px-3 py-1 hover:bg-white hover:text-black`} to={'/blog'}>
-              {t('nav.home')}
-            </Link>
-          </div>
-      )}
-      <div css={[
-          tw`lg:flex grid text-white bg-black`,
+      <div
+        css={[
+          tw`grid text-white`,
           !ignoreBlock && tw`h-screen w-screen`,
-        ]}>
-        {!isInIframe && (
-          <>
-            <div css={tw`lg:w-[58px]`} />
-            <SideBar />
-          </>
-        )}
-        {children || <Outlet />}
+        ]}
+        style={{ backgroundImage: `url(${bgImage})` }}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            className='page-content'
+            css={tw`text-white bg-black overflow-auto`}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <TopBar />
+            {children || <Outlet />}
+            <Footer />
+          </motion.div>
+        </AnimatePresence>
       </div>
     </>
   );
@@ -63,6 +90,8 @@ export const withKeepAlive = (Component: React.LazyExoticComponent<any>) => {
 
 const Home = withKeepAlive(lazy(() => import('@/modules/Home')));
 const Blog = withKeepAlive(lazy(() => import('@/modules/Blog')));
+const Work = withKeepAlive(lazy(() => import('@/modules/Work')));
+const Contact = withKeepAlive(lazy(() => import('@/modules/Contact')));
 const BlogPage = withKeepAlive(lazy(() => import('@/modules/Blog/Page')));
 
 export default function App() {
@@ -85,28 +114,44 @@ export default function App() {
             </Layout>
           }
         />
-        <Route 
-          path='blog/:slug' 
+        <Route
+          path='blog/:slug'
           element={
             <Layout spaceTop ignoreBlock>
               <BlogPage />
             </Layout>
           }
         />
-        <Route 
-          path="*" 
+        <Route
+          path='work'
           element={
-            <div>404</div>
-          } 
+            <Layout spaceTop ignoreBlock>
+              <Work />
+            </Layout>
+          }
+        />
+        <Route
+          path='contact'
+          element={
+            <Layout spaceTop ignoreBlock>
+              <Contact />
+            </Layout>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <div css={tw`text-white text-center`}>404</div>
+          }
         />
       </Route>
     )
   );
 
   return (
-    <LanguageProvider>
+    <>
       <CustomCursor />
       <RouterProvider router={router} />
-    </LanguageProvider>
+    </>
   );
 }

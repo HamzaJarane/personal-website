@@ -1,7 +1,5 @@
 import { getBlogPages } from '@/helpers/getBlog';
 import { BlogCategory, BlogGrid, BlogRow, CardTitle, ProfileButton } from '@/helpers/StyledComponents';
-import React from 'react'
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import tw from 'twin.macro';
 
@@ -9,11 +7,10 @@ function BlogPosts() {
     const pages = getBlogPages();
     const navigate = useNavigate();
     const gotoPage = (slug: string) => navigate(`/blog/${slug}`);
-    const { t } = useTranslation();
 
     return (
         <div css={tw``}>
-            <CardTitle text={t('blog.title')} />
+            <CardTitle text={'Blog.'} />
             <BlogGrid blog={false}>
                 {[...pages].reverse().slice(0, 4).map((page) => (
                     <BlogRow key={page.slug} onClick={() => gotoPage(page.slug)}>
@@ -40,7 +37,7 @@ function BlogPosts() {
             </BlogGrid>
             <div css={tw`flex justify-center items-center mb-5`}>
                 <ProfileButton onClick={() => navigate(`/blog`)} css={tw`p-3 font-semibold w-[219px]`}>
-                    {t('blog.see_more')}
+                    See More
                 </ProfileButton>
             </div>
         </div>

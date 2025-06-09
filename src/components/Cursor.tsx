@@ -14,7 +14,7 @@ const ball: MotionStyle = {
 
 export default function Drag() {
     const ref = useRef<HTMLDivElement>(null);
-    const { x, y, isHoveringName, currentLanguage } = useFollowPointer(ref);
+    const { x, y, isHoveringName } = useFollowPointer(ref);
 
     return (
         <motion.div
@@ -26,8 +26,8 @@ export default function Drag() {
                 width: isHoveringName ? 200 : 100,
                 height: isHoveringName ? 200 : 100,
                 backgroundColor: isHoveringName ? 'transparent' : 'white',
-                backgroundImage: isHoveringName ? `url('/me.jpg')` : currentLanguage ? `url('/logos/${currentLanguage}.png')` : 'none',
-                mixBlendMode: (currentLanguage || isHoveringName) ? 'unset' : 'difference',
+                backgroundImage: isHoveringName ? `url('/me.jpg')` : 'none',
+                mixBlendMode: isHoveringName ? 'unset' : 'difference',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
@@ -41,7 +41,6 @@ export function useFollowPointer(ref: RefObject<HTMLDivElement | null>) {
     const x = useSpring(0, spring);
     const y = useSpring(0, spring);
     const [isHoveringName, setIsHoveringName] = useState(false);
-    const [currentLanguage, setCurrentLanguage] = useState<null | string>(null);
 
     useEffect(() => {
         if (!ref.current) return;
@@ -51,15 +50,6 @@ export function useFollowPointer(ref: RefObject<HTMLDivElement | null>) {
             const nameElement = (target as HTMLElement).closest('#hamza-name');
 
             setIsHoveringName(!!nameElement);
-
-            const language = (target as HTMLElement).closest('[id^="language-"]');
-            if (language) {
-                const languageName = language.id.split('language-')[1];
-                setCurrentLanguage(languageName);
-            } else {
-                setCurrentLanguage(null);
-            }
-
             frame.read(() => {
                 x.set(clientX - element.offsetLeft - element.offsetWidth / 2);
                 y.set(clientY - element.offsetTop - element.offsetHeight / 2);
@@ -72,5 +62,5 @@ export function useFollowPointer(ref: RefObject<HTMLDivElement | null>) {
             window.removeEventListener("pointermove", handlePointerMove);
     }, []);
 
-    return { x, y, isHoveringName, currentLanguage };
+    return { x, y, isHoveringName };
 }

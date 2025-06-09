@@ -7,11 +7,11 @@ import { TextPlugin } from 'gsap/TextPlugin';
 gsap.registerPlugin(TextPlugin);
 
 export const CardDescription = styled.div`
-    ${tw`font-light text-black mb-3 max-w-[90%]`}
+    ${tw`font-light text-white mb-3 max-w-[90%]`}
 `;
 
 export const CardDescriptionHighLight = styled.span`
-    ${tw`font-semibold text-black`}
+    ${tw`font-semibold text-white`}
 
     &:hover {
         ${tw`underline`}
@@ -19,7 +19,7 @@ export const CardDescriptionHighLight = styled.span`
 `;
 
 export const CardTitleRow = styled.div`
-    ${tw`text-[50px] text-black font-semibold my-5 underline`}
+    ${tw`text-[50px] text-white font-semibold my-5 underline`}
 
     -webkit-background-clip: text;
     background-clip: text;
@@ -44,7 +44,7 @@ export const ProfileImage = styled.img`
 `;
 
 export const FullName = styled.div`
-    ${tw`text-black font-bold text-[30px]`}
+    ${tw`text-white font-bold text-[30px]`}
 
     &:hover {
         ${tw`underline`}
@@ -56,7 +56,7 @@ export const FieldsGroup = styled.div`
 `;
 
 export const Field = styled.a`
-    ${tw`text-black font-bold cursor-pointer text-[15px]`}
+    ${tw`text-white font-bold cursor-pointer text-[15px]`}
 
     &:hover {
         ${tw`underline text-red-700`}
@@ -101,7 +101,7 @@ export const ExperienceTimeLine = styled.div`
         `}
 
         & div:first-child {
-            ${tw`text-2xl font-bold text-black`}
+            ${tw`text-2xl font-bold text-white`}
 
             & span {
                 ${tw`ml-1 font-light text-[18px]`}
@@ -113,7 +113,7 @@ export const ExperienceTimeLine = styled.div`
         ${tw`lg:flex lg:justify-between`}
 
         & a {
-            ${tw`font-medium text-xl text-black mb-1 sm:mb-0`}
+            ${tw`font-medium text-xl text-white mb-1 sm:mb-0`}
             &:hover {
                 ${tw`underline`}
             }
@@ -125,7 +125,7 @@ export const ExperienceTimeLine = styled.div`
     }
 
     & .eDescription {
-        ${tw` font-light text-black`}
+        ${tw` font-light text-white`}
     }
 
     & .eSkills {
@@ -150,7 +150,7 @@ export const WorkContainer = styled.div`
 `;
 
 export const WorkRow = styled.div`
-    ${tw`p-3 rounded space-y-2 lg:flex lg:space-y-0 lg:space-x-4 lg:max-w-[90%] text-black transition-all ease-in-out duration-200`}
+    ${tw`p-3 rounded space-y-2 lg:flex lg:space-y-0 lg:space-x-4 lg:max-w-[90%] text-white transition-all ease-in-out duration-200`}
 
     &:hover {
         ${tw`bg-white cursor-pointer`}
@@ -161,39 +161,39 @@ export const WorkRow = styled.div`
         }
 
         & .wName {
-            ${tw`text-black`}
+            ${tw`text-white`}
         }
     
         & .wDescription {
-            ${tw`text-black`}
+            ${tw`text-white`}
         }
 
         & .wLang {
-            ${tw`bg-black text-black`}
+            ${tw`bg-black text-white`}
         }
     }
 `;
 
 export const ProfileButton = styled.button`
-    ${tw`bg-white text-black transition-all duration-150 ease-in-out rounded border border-transparent`}
+    ${tw`bg-white text-white transition-all duration-150 ease-in-out rounded border border-transparent`}
 
     &:hover {
-        ${tw`bg-black text-black scale-105 border-white`}
+        ${tw`bg-black text-white scale-105 border-white`}
     }
 `;
 
 export const BlogGrid = styled.div<{ blog?: boolean }>(({ blog = true }) => [
     tw`p-5 h-fit gap-4 grid grid-cols-1 w-full`,
-    blog ? tw`lg:grid-cols-4` : tw`lg:grid-cols-2`,
+    blog ? tw`lg:grid-cols-2` : tw`lg:grid-cols-2`,
 ]);
 
 export const BlogRow = styled.button`
-    ${tw`p-3 w-full rounded-lg flex flex-col justify-evenly gap-2 text-black transition-all ease-in-out duration-200 border-2 border-white`}
+    ${tw`p-3 w-full rounded-lg flex flex-col justify-evenly gap-2 text-white transition-all ease-in-out duration-200 border-2 border-white`}
 
     &:hover {
         ${tw`bg-white cursor-pointer text-black border-black scale-[0.99]`}
         .blogCategory {
-            ${tw`!bg-black !text-black`}
+            ${tw`!bg-black !text-white`}
         }
     }
 `;

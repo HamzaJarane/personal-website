@@ -6,10 +6,8 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { ProfileImage, FullName, FieldsGroup, Field, ProfileButton } from '@/helpers/StyledComponents';
 import { faDesktop, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { Tween } from 'react-gsap';
-import { useTranslation } from 'react-i18next';
 
 function Profile() {
-    const { t, i18n } = useTranslation();
     const data = getProfileData();
     const profilePicture = `https://avatars.githubusercontent.com/u/${data.github.id}?v=${data.github.fetchedTime}`;
     return (
@@ -63,15 +61,15 @@ function Profile() {
                         <ProfileButton
                             onClick={() => {
                                 const link = document.createElement('a');
-                                link.href = i18n.language === 'fr' ? `https://hamza.im/Francais.pdf` : `https://hamza.im/English.pdf`;
-                                link.download = t('profile.resume');
+                                link.href = `https://hamza.im/English.pdf`; // https://hamza.im/Francais.pdf
+                                link.download = 'resume';
                                 link.click();
                             }}
                         >
                             <div
                                 css={tw`p-2`}
                             >
-                                <FontAwesomeIcon icon={faDownload} /> {t('profile.resume')}
+                                <FontAwesomeIcon icon={faDownload} /> Resume
                             </div>
                         </ProfileButton>
 
@@ -81,7 +79,7 @@ function Profile() {
                             <div
                                 css={tw`p-2`}
                             >
-                                <FontAwesomeIcon icon={faDesktop} /> {t('profile.desktop')}
+                                <FontAwesomeIcon icon={faDesktop} /> Desktop
                             </div>
                         </ProfileButton>
                     </div>
