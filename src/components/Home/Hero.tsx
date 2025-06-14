@@ -10,10 +10,8 @@ const HightLightText = ({ children }: { children: React.ReactNode }) => {
 export default function Hero() {
     return (
         <>
-            <div css={tw` text-[#ffffffd7]`}>
-                <div css={tw`text-white text-center text-[15em]`}>
-                    <div>H<span css={tw`font-[Yellowtail]`}>ello</span>!</div>
-                </div>
+            <div css={tw`text-white text-center text-[15em]`}>
+                <div>H<span css={tw`font-[Yellowtail]`}>ello</span>!</div>
             </div>
             <AboutMe />
             <div css={tw`lg:p-[3.75rem] text-[#ffffffd7]`}>

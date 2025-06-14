@@ -21,8 +21,6 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@gsap/react": "^2.1.1",
-    "@types/gsap": "^3.0.0",
-    "@types/node": "^20.14.2",
     "@vitejs/plugin-react": "^4.3.0",
     "axios": "^1.7.9",
     "gsap": "^3.12.5",
