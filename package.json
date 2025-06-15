@@ -23,7 +23,7 @@
     "@gsap/react": "^2.1.1",
     "@hookform/resolvers": "^5.1.1",
     "@vitejs/plugin-react": "^4.3.0",
-    "axios": "^1.7.9",
+    "axios": "^1.8.2",
     "gsap": "^3.12.5",
     "motion": "^12.15.0",
     "path": "^0.12.7",
