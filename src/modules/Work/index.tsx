@@ -8,7 +8,7 @@ const OpenSource = lazy(() => import('@/components/Work/OpenSource'));
 export default function Work() {
   return (
     <>
-      <div css={tw`text-white text-center text-[15em]`}>
+      <div css={tw`text-white text-center lg:text-[15em] text-[5em]`}>
         <div>W<span css={tw`font-[Yellowtail]`}>ork</span></div>
       </div>
       <div css={tw`flex flex-col px-7 sm:px-40`}>

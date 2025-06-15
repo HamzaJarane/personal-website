@@ -1,4 +1,4 @@
-import { getBlogPages } from '@/helpers/getBlog';
+import { getBlogPages } from '@/helpers/blog';
 import { BlogCategory, BlogGrid, BlogRow, CardTitle, ProfileButton } from '@/helpers/StyledComponents';
 import { useNavigate } from 'react-router-dom';
 import tw from 'twin.macro';

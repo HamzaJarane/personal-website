@@ -7,78 +7,9 @@ import TopBar from './components/TopBar';
 import { AnimatePresence, motion, Transition, Variants } from 'framer-motion';
 import '@/App.css';
 import Footer from './components/Footer';
-
-export const Layout = ({ children, spaceTop = false, ignoreBlock = false }: { children?: React.ReactNode, spaceTop?: boolean, ignoreBlock?: boolean }) => {
-  const location = useLocation();
-  const pageVariants: Variants = {
-    initial: {
-      scale: 0.8,
-      border: "10px solid white",
-      borderRadius: "0.75rem",
-    },
-    animate: {
-      scale: 1,
-      border: "none",
-      borderRadius: "0",
-    },
-    exit: {
-      scale: 0.8,
-      border: "10px solid white",
-      borderRadius: "0.75rem",
-    }
-  };
-
-  const pageTransition: Transition = {
-    duration: 0.7,
-    ease: "easeInOut",
-    scale: {
-      duration: 0.5,
-      ease: [0.25, 0.1, 0.25, 1],
-      type: "tween",
-      enter: { duration: 0.1 },
-    }
-  };
-
-  return (
-    <>
-      {spaceTop && (
-        <div css={tw`lg:hidden h-2`} />
-      )}
-      <div
-        css={[
-          tw`grid text-white`,
-          !ignoreBlock && tw`h-screen w-screen`,
-        ]}
-        style={{ backgroundImage: `url(${bgImage})` }}
-      >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={location.pathname}
-            className='page-content'
-            css={tw`text-white bg-black overflow-auto`}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={pageVariants}
-            transition={pageTransition}
-          >
-            <TopBar />
-            {children || <Outlet />}
-            <Footer />
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    </>
-  );
-};
-
-export const Loading = () => {
-  return (
-    <div css={tw`h-screen w-screen flex justify-center items-center`}>
-      <div className="loader" />
-    </div>
-  );
-};
+import { Toaster } from 'react-hot-toast';
+import { Loading } from './components/Loading';
+import { Layout } from './components/Layout';
 
 export const withKeepAlive = (Component: React.LazyExoticComponent<any>) => {
   return React.memo(() => (
@@ -150,6 +81,20 @@ export default function App() {
 
   return (
     <>
+      <Toaster 
+        position={"bottom-right"} 
+        toastOptions={{
+          style: {
+            background: '#000',
+            color: '#fff',
+            border: '1px solid #fff',
+            padding: '16px',
+            fontSize: '16px',
+            minWidth: '300px',
+            borderRadius: '0',
+          }
+        }}
+      />
       <CustomCursor />
       <RouterProvider router={router} />
     </>

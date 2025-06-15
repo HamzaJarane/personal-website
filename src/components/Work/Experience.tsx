@@ -1,5 +1,5 @@
 import { CardTitle, ExperienceTimeLine } from '@/helpers/StyledComponents';
-import { experiences } from '@/helpers/getExperiences';
+import { experiences } from '@/helpers/experiences';
 import tw from 'twin.macro';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';

@@ -1,15 +1,14 @@
-import React, { useEffect, useRef } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import tw from 'twin.macro';
 import Markdown from 'react-markdown'
-import { getBlogPages, getPage, getPageMetaBySlug } from '@/helpers/getBlog';
+import { getBlogPages, getPage, getPageMetaBySlug } from '@/helpers/blog';
 import useSWR from 'swr'
-import { Loading } from '@/App';
 import rehypeRaw from 'rehype-raw'
-import './page.css';
 import { BlogCategory, BlogRow } from '@/helpers/StyledComponents';
-import FooterProfileCard from '@/components/FooterProfileCard';
+import FooterProfileCard from '@/components/Blog/FooterProfileCard';
 import UtterancesComments from '@/components/Blog/utterancesComments';
+import { Loading } from '@/components/Loading';
+import './page.css';
 
 function Page() {
     const { slug } = useParams() as { slug: string };

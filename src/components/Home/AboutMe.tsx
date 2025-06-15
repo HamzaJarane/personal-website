@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import Ticker from '@/components/Ticker';
 
 export const TextHighlight = styled(motion.span)`
-  ${tw`text-[120px] text-center font-bold block mb-6 text-black uppercase`}
+  ${tw`text-center font-bold block mb-6 text-black uppercase`}
   opacity: 0;
   text-transform: uppercase;
   letter-spacing: -2px;
@@ -94,6 +94,7 @@ function AboutMe() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={textVariants}
+            css={tw`lg:text-[120px] text-[30px]`}
             whileHover={{ scale: 1.05, color: '#0066ff' }}
           >
             hi, i'm <span id="hamza-name" css={tw`underline`}>hamza</span>.
@@ -106,7 +107,7 @@ function AboutMe() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={textVariants}
-            css={tw`!text-[80px]`}
+            css={tw`lg:text-[80px] text-[30px]`}
             whileHover={{ scale: 1.05, color: '#0066ff' }}
           >
             i'm a {age} year old from morocco.
@@ -119,7 +120,7 @@ function AboutMe() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={textVariants}
-            css={tw`!text-[80px]`}
+            css={tw`lg:text-[80px] text-[30px]`}
             whileHover={{ scale: 1.05, color: '#0066ff' }}
           >
             i'm a software developer.
@@ -132,7 +133,7 @@ function AboutMe() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={textVariants}
-            css={tw`!text-[80px]`}
+            css={tw`lg:text-[80px] text-[30px]`}
             whileHover={{ scale: 1.05, color: '#0066ff' }}
           >
             i create things in my free time.

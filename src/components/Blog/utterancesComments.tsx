@@ -1,4 +1,4 @@
-import { getBlogSettings } from '@/helpers/getBlog';
+import { getBlogSettings } from '@/helpers/blog';
 import { useEffect, useRef } from 'react';
 
 const UtterancesComments = () => {

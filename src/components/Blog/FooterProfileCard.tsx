@@ -1,4 +1,4 @@
-import { getProfileData } from '@/helpers/getProfileData';
+import { getProfileData } from '@/helpers/profile-data';
 import { Field, FullName, ProfileImage } from '@/helpers/StyledComponents';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

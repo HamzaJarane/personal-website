@@ -1,12 +1,12 @@
 import React from 'react'
 import tw from 'twin.macro';
 import { CardTitle, WorkRow, WorkContainer } from '@/helpers/StyledComponents';
-import { getOpenSource } from '@/helpers/getOpenSource';
+import { getOpenSource } from '@/helpers/open-source';
 
 function OpenSource() {
     const data = getOpenSource();
     return (
-        <div css={tw``}>
+        <div>
             <CardTitle text={'OpenSource.'} />
             <div
                 css={tw`flex flex-col gap-2 items-center mb-3`}

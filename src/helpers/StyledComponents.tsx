@@ -19,7 +19,7 @@ export const CardDescriptionHighLight = styled.span`
 `;
 
 export const CardTitleRow = styled.div`
-    ${tw`text-[50px] text-white font-semibold my-5 underline`}
+    ${tw`text-[50px] font-[Oswald] text-white font-semibold my-5 underline`}
 
     -webkit-background-clip: text;
     background-clip: text;
@@ -150,7 +150,7 @@ export const WorkContainer = styled.div`
 `;
 
 export const WorkRow = styled.div`
-    ${tw`p-3 rounded space-y-2 lg:flex lg:space-y-0 lg:space-x-4 lg:max-w-[90%] text-white transition-all ease-in-out duration-200`}
+    ${tw`p-3 rounded space-y-2 lg:flex lg:space-y-0 lg:space-x-4 text-white transition-all ease-in-out duration-200`}
 
     &:hover {
         ${tw`bg-white cursor-pointer`}
@@ -161,11 +161,11 @@ export const WorkRow = styled.div`
         }
 
         & .wName {
-            ${tw`text-white`}
+            ${tw`text-black`}
         }
     
         & .wDescription {
-            ${tw`text-white`}
+            ${tw`text-black`}
         }
 
         & .wLang {

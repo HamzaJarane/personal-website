@@ -1,14 +1,11 @@
-import React from 'react'
 import tw from 'twin.macro';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const FooterWrapper = tw.footer`w-full items-center pt-8`;
-const TopBorder = tw.div`w-full border-t-2 border-dashed border-white/50 mb-6 [border-spacing:4px]`;
-const ContentWrapper = tw.div`w-full flex justify-between mt-11 mb-6`;
-const Column = tw.div`flex flex-col gap-2 px-4 lg:px-28 text-5xl font-[Yellowtail]`;
+const FooterWrapper = tw.footer`w-full items-center pt-4 md:pt-8`;
+const TopBorder = tw.div`w-full border-t-2 border-dashed border-white/50 mb-4 md:mb-6 [border-spacing:4px]`;
+const ContentWrapper = tw.div`w-full flex justify-between mt-6 md:mt-11 mb-4 md:mb-6 gap-8 md:gap-0`;
+const Column = tw.div`flex flex-col gap-2 px-4 lg:px-28 text-2xl md:text-4xl lg:text-5xl font-[Yellowtail]`;
 
 const StyledLink = styled(Link)`
     &:hover {
@@ -26,7 +23,7 @@ function Footer() {
     return (
         <FooterWrapper>
             <TopBorder />
-            <div css={tw`font-[Oswald] text-5xl px-3 flex justify-between`}>
+            <div css={tw`font-[Oswald] text-2xl md:text-4xl lg:text-5xl px-3 flex flex-col md:flex-row justify-between gap-2 md:gap-0`}>
                 <div>
                     Hamza Jarane
                 </div>
@@ -40,11 +37,12 @@ function Footer() {
                     <StyledLink to={'/'}>Home</StyledLink>
                     <StyledLink to={'/blog'}>Blog</StyledLink>
                     <StyledLink to={'/work'}>Work</StyledLink>
+                    <StyledLink to={'/contact'}>Contact</StyledLink>
                 </Column>
                 
                 <Column>
-                    <StyledLinkElement href={''}>Linkedin</StyledLinkElement>
-                    <StyledLinkElement href={''}>Github</StyledLinkElement>
+                    <StyledLinkElement href={'https://github.com/HamzaJarane'}>Linkedin</StyledLinkElement>
+                    <StyledLinkElement href={'https://www.linkedin.com/in/hamza-jarane-b05511264'}>Github</StyledLinkElement>
                 </Column>
             </ContentWrapper>
         </FooterWrapper>

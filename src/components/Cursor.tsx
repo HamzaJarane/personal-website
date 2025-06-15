@@ -15,6 +15,21 @@ const ball: MotionStyle = {
 export default function Drag() {
     const ref = useRef<HTMLDivElement>(null);
     const { x, y, isHoveringName } = useFollowPointer(ref);
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(pointer: coarse)');
+        setIsTouchDevice(mediaQuery.matches);
+
+        const handleChange = (e: MediaQueryListEvent) => {
+            setIsTouchDevice(e.matches);
+        };
+
+        mediaQuery.addEventListener('change', handleChange);
+        return () => mediaQuery.removeEventListener('change', handleChange);
+    }, []);
+
+    if (isTouchDevice) return null;
 
     return (
         <motion.div
@@ -45,9 +60,11 @@ export function useFollowPointer(ref: RefObject<HTMLDivElement | null>) {
     useEffect(() => {
         if (!ref.current) return;
 
-        const handlePointerMove = ({ clientX, clientY, target }: MouseEvent) => {
+        const handlePointerMove = (e: MouseEvent) => {
             const element = ref.current!;
-            const nameElement = (target as HTMLElement).closest('#hamza-name');
+            const nameElement = (e.target as HTMLElement).closest('#hamza-name');
+            const clientX = e.clientX;
+            const clientY = e.clientY;
 
             setIsHoveringName(!!nameElement);
             frame.read(() => {
@@ -58,8 +75,9 @@ export function useFollowPointer(ref: RefObject<HTMLDivElement | null>) {
 
         window.addEventListener("pointermove", handlePointerMove);
 
-        return () =>
+        return () => {
             window.removeEventListener("pointermove", handlePointerMove);
+        };
     }, []);
 
     return { x, y, isHoveringName };

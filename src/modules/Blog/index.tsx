@@ -1,4 +1,4 @@
-import { getBlogPages, getPage } from '@/helpers/getBlog';
+import { getBlogPages, getPage } from '@/helpers/blog';
 import { BlogCategory, BlogGrid, BlogRow } from '@/helpers/StyledComponents';
 import { useNavigate } from 'react-router-dom';
 import tw from 'twin.macro';
@@ -10,7 +10,7 @@ function Blog() {
 
     return (
         <>
-            <div css={tw`text-white text-center text-[15em]`}>
+            <div css={tw`text-white text-center lg:text-[15em] text-[5em]`}>
                 <div>B<span css={tw`font-[Yellowtail]`}>log</span></div>
             </div>
             <BlogGrid>
