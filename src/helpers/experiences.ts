@@ -1,5 +1,3 @@
-import i18n from '@/i18n';
-
 interface IExperience {
     role: string;
     company: {
@@ -28,8 +26,8 @@ export const experiences: IExperience[] = [
         to: 'Present',
 
         descriptions: [
-            i18n.t("experience.digitalbaba.descriptions.1"),
-            i18n.t("experience.digitalbaba.descriptions.2")
+            'Worked on multiple Mern and Full-stack projects',
+            'Contributed with other developers'
         ],
         skills: ['NestJS', 'Vue.JS', 'Figma', 'Laravel', 'Filament', 'React', 'NextJS', 'Docker', "Agile"]
     },
@@ -46,9 +44,9 @@ export const experiences: IExperience[] = [
         to: '2024 / October',
 
         descriptions: [
-            i18n.t("experience.greyweb.descriptions.1"),
-            i18n.t("experience.greyweb.descriptions.2"),
-            i18n.t("experience.greyweb.descriptions.3"),
+            "Redesigned client's dashboard with ReactJS and Laravel",
+            "Imported <a href=\"https://pterodactyl.io\">pterodactyl.io</a> and <a href=\"https://timeweb.cloud\">timeweb.cloud</a> APIs to the backend with Laravel.",
+            "Contribute to the frontend dashboard with VueJS 3."
         ],
         skills: ['Figma', 'Laravel', 'Filament', 'Vue.JS', 'Gitlab', 'Docker']
     },
@@ -65,8 +63,8 @@ export const experiences: IExperience[] = [
         to: '2024 / April',
 
         descriptions: [
-            i18n.t("experience.ajicod.descriptions.1"),
-            i18n.t("experience.ajicod.descriptions.2"),
+            "Collaborated with a team of developers to develop modern and friendly web solutions",
+            "Integrate payment gateways such as CMI / Paypal / Stripe and Youcan Pay."
         ],
         skills: ['Figma', 'CI/CD', 'Mailu', 'Laravel', 'Filament', 'Next.JS', 'Express.JS']
     },

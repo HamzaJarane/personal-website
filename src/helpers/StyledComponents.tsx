@@ -19,7 +19,7 @@ export const CardDescriptionHighLight = styled.span`
 `;
 
 export const CardTitleRow = styled.div`
-    ${tw`text-[50px] text-white font-semibold my-5 underline`}
+    ${tw`text-[50px] font-[Oswald] text-white font-semibold my-5 underline`}
 
     -webkit-background-clip: text;
     background-clip: text;
@@ -150,7 +150,7 @@ export const WorkContainer = styled.div`
 `;
 
 export const WorkRow = styled.div`
-    ${tw`p-3 rounded space-y-2 lg:flex lg:space-y-0 lg:space-x-4 lg:max-w-[90%] text-white transition-all ease-in-out duration-200`}
+    ${tw`p-3 rounded space-y-2 lg:flex lg:space-y-0 lg:space-x-4 text-white transition-all ease-in-out duration-200`}
 
     &:hover {
         ${tw`bg-white cursor-pointer`}
@@ -175,7 +175,7 @@ export const WorkRow = styled.div`
 `;
 
 export const ProfileButton = styled.button`
-    ${tw`bg-white text-black transition-all duration-150 ease-in-out rounded border border-transparent`}
+    ${tw`bg-white text-white transition-all duration-150 ease-in-out rounded border border-transparent`}
 
     &:hover {
         ${tw`bg-black text-white scale-105 border-white`}
@@ -184,7 +184,7 @@ export const ProfileButton = styled.button`
 
 export const BlogGrid = styled.div<{ blog?: boolean }>(({ blog = true }) => [
     tw`p-5 h-fit gap-4 grid grid-cols-1 w-full`,
-    blog ? tw`lg:grid-cols-4` : tw`lg:grid-cols-2`,
+    blog ? tw`lg:grid-cols-2` : tw`lg:grid-cols-2`,
 ]);
 
 export const BlogRow = styled.button`

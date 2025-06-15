@@ -1,21 +1,18 @@
-import React, { useEffect, useRef } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import tw from 'twin.macro';
 import Markdown from 'react-markdown'
-import { getBlogPages, getPage, getPageMetaBySlug } from '@/helpers/getBlog';
+import { getBlogPages, getPage, getPageMetaBySlug } from '@/helpers/blog';
 import useSWR from 'swr'
-import { Loading } from '@/App';
 import rehypeRaw from 'rehype-raw'
-import './page.css';
 import { BlogCategory, BlogRow } from '@/helpers/StyledComponents';
-import FooterProfileCard from '@/components/Cards/FooterProfileCard';
-import { useTranslation } from 'react-i18next';
+import FooterProfileCard from '@/components/Blog/FooterProfileCard';
 import UtterancesComments from '@/components/Blog/utterancesComments';
+import { Loading } from '@/components/Loading';
+import './page.css';
 
 function Page() {
     const { slug } = useParams() as { slug: string };
     const { data, error, isLoading } = useSWR(slug, getPage);
-    const { t, i18n } = useTranslation();
     const pages = getBlogPages();
     
     const pageMetaData = getPageMetaBySlug(slug);
@@ -34,7 +31,7 @@ function Page() {
         <div css={tw`flex flex-col justify-center items-center`}>
             <div css={tw`w-[90%] lg:w-[70%] py-6`}>
                 <div style={{ borderBottom: '1px solid #3d444db3' }} css={tw`mt-4 font-semibold leading-[1.25] m-[0.67em_0] pb-[0.3em] text-[2em]`}>{pageMetaData.title}</div>
-                <div css={tw`font-bold`}>{t('blog.published_at')}: <span css={tw`font-normal capitalize`}>{formatPublishedAt(pageMetaData.published_at, i18n.language === 'en' ? 'en-US' : 'fr-FR')}</span></div>
+                <div css={tw`font-bold`}>Published At: <span css={tw`font-normal capitalize`}>{formatPublishedAt(pageMetaData.published_at)}</span></div>
                 <Markdown
                     rehypePlugins={[rehypeRaw]}
                     className={'markdown-body'}
@@ -54,7 +51,7 @@ function Page() {
             </div>
 
             <div css={tw`text-center text-3xl font-semibold`}>
-                {t('blog.you-might-also-like')}
+                You might also like
             </div>
 
             <div css={tw`w-[90%] lg:w-[70%] my-10 grid grid-cols-1 lg:grid-cols-3 gap-3`}>

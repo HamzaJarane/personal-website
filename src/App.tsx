@@ -1,56 +1,15 @@
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Outlet, Link, useLocation } from 'react-router-dom';
-import React, { lazy, Suspense, useEffect, useState } from 'react';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Outlet, useLocation } from 'react-router-dom';
+import React, { lazy, Suspense } from 'react';
 import tw from 'twin.macro';
-import SideBar from './components/SideBar';
-import { LanguageProvider } from './contexts/LanguageContext';
-import { useTranslation } from 'react-i18next';
+import CustomCursor from './components/Cursor';
+import bgImage from '@/assets/images/bg.jpg';
+import TopBar from './components/TopBar';
+import { AnimatePresence, motion, Transition, Variants } from 'framer-motion';
 import '@/App.css';
-import './i18n';
-
-export const Layout = ({ children, spaceTop = false, ignoreBlock = false }: { children?: React.ReactNode, spaceTop?: boolean, ignoreBlock?: boolean }) => {
-  const [isInIframe, setIsInIframe] = useState(false);
-  const { t } = useTranslation();
-  const location = useLocation();
-
-  useEffect(() => {
-    setIsInIframe(location.pathname.startsWith('/blog') && window.self !== window.top);
-  }, [location]);
-  
-  return (
-    <>
-      {spaceTop && (
-        <div css={tw`lg:hidden h-2`} />
-      )}
-      {isInIframe && (
-          <div css={tw`text-white flex justify-center items-center p-3`}>
-            <Link css={tw`text-xl font-semibold border rounded-full px-3 py-1 hover:bg-white hover:text-black`} to={'/blog'}>
-              {t('nav.home')}
-            </Link>
-          </div>
-      )}
-      <div css={[
-          tw`lg:flex grid text-white bg-black`,
-          !ignoreBlock && tw`h-screen w-screen`,
-        ]}>
-        {!isInIframe && (
-          <>
-            <div css={tw`lg:w-[58px]`} />
-            <SideBar />
-          </>
-        )}
-        {children || <Outlet />}
-      </div>
-    </>
-  );
-};
-
-export const Loading = () => {
-  return (
-    <div css={tw`h-screen w-screen flex justify-center items-center`}>
-      <div className="loader" />
-    </div>
-  );
-};
+import Footer from './components/Footer';
+import { Toaster } from 'react-hot-toast';
+import { Loading } from './components/Loading';
+import { Layout } from './components/Layout';
 
 export const withKeepAlive = (Component: React.LazyExoticComponent<any>) => {
   return React.memo(() => (
@@ -62,6 +21,8 @@ export const withKeepAlive = (Component: React.LazyExoticComponent<any>) => {
 
 const Home = withKeepAlive(lazy(() => import('@/modules/Home')));
 const Blog = withKeepAlive(lazy(() => import('@/modules/Blog')));
+const Work = withKeepAlive(lazy(() => import('@/modules/Work')));
+const Contact = withKeepAlive(lazy(() => import('@/modules/Contact')));
 const BlogPage = withKeepAlive(lazy(() => import('@/modules/Blog/Page')));
 
 export default function App() {
@@ -84,27 +45,58 @@ export default function App() {
             </Layout>
           }
         />
-        <Route 
-          path='blog/:slug' 
+        <Route
+          path='blog/:slug'
           element={
             <Layout spaceTop ignoreBlock>
               <BlogPage />
             </Layout>
           }
         />
-        <Route 
-          path="*" 
+        <Route
+          path='work'
           element={
-            <div>404</div>
-          } 
+            <Layout spaceTop ignoreBlock>
+              <Work />
+            </Layout>
+          }
+        />
+        <Route
+          path='contact'
+          element={
+            <Layout spaceTop ignoreBlock>
+              <Contact />
+            </Layout>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <div css={tw`text-white text-center`}>404</div>
+          }
         />
       </Route>
     )
   );
 
   return (
-    <LanguageProvider>
+    <>
+      <Toaster 
+        position={"bottom-right"} 
+        toastOptions={{
+          style: {
+            background: '#000',
+            color: '#fff',
+            border: '1px solid #fff',
+            padding: '16px',
+            fontSize: '16px',
+            minWidth: '300px',
+            borderRadius: '0',
+          }
+        }}
+      />
+      <CustomCursor />
       <RouterProvider router={router} />
-    </LanguageProvider>
+    </>
   );
 }

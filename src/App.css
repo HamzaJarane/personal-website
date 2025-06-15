@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Oswald";
+  src: url("./assets/fonts/Oswald-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Yellowtail";
+  src: url("./assets/fonts/Yellowtail-Regular.ttf");
+}
+
+@keyframes pageTransition {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-pageTransition {
+  animation: pageTransition 1s ease-in-out forwards;
+}

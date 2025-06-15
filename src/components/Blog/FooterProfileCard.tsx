@@ -1,14 +1,12 @@
-import { getProfileData } from '@/helpers/getProfileData';
+import { getProfileData } from '@/helpers/profile-data';
 import { Field, FullName, ProfileImage } from '@/helpers/StyledComponents';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
-import { useTranslation } from 'react-i18next';
 import tw from 'twin.macro';
 
 function FooterProfileCard() {
     const data = getProfileData();
-    const { t } = useTranslation();
     const profilePicture = `https://avatars.githubusercontent.com/u/${data.github.id}?v=${data.github.fetchedTime}`;
 
     return (
@@ -23,7 +21,7 @@ function FooterProfileCard() {
             />
 
             <div css={tw`flex flex-col justify-center`}>
-                <div>{t('blog.author')}</div>
+                <div>Author</div>
                 <FullName>
                     Hamza Jarane
                 </FullName>
