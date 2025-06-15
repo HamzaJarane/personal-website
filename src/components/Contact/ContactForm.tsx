@@ -25,12 +25,14 @@ const ContactForm = () => {
 
     const onSubmit = async (data: ContactFormData) => {
         toast.promise(
-            axiosInstance.post('/contact', data),
+            axiosInstance.post('/contact', data).then(() => {
+                reset();
+            }),
             {
                 loading: 'Sending...',
                 success: 'Message sent successfully!',
                 error: (e) => {
-                    console.log(e);
+                    console.error(e);
                     return e?.response?.data?.message || e.message || 'Failed to send message. Please try again.';
                 },
             }
