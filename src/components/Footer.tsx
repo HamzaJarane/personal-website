@@ -41,8 +41,8 @@ function Footer() {
                 </Column>
                 
                 <Column>
-                    <StyledLinkElement href={'https://github.com/HamzaJarane'}>Linkedin</StyledLinkElement>
-                    <StyledLinkElement href={'https://www.linkedin.com/in/hamza-jarane-b05511264'}>Github</StyledLinkElement>
+                    <StyledLinkElement href={'https://www.linkedin.com/in/hamza-jarane-b05511264'}>Linkedin</StyledLinkElement>
+                    <StyledLinkElement href={'https://github.com/HamzaJarane'}>Github</StyledLinkElement>
                 </Column>
             </ContentWrapper>
         </FooterWrapper>
