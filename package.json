@@ -8,6 +8,7 @@
     "github": "node scripts/setGithubInformation.cjs",
     "blog": "node scripts/indexBlog.cjs",
     "sitemap": "node scripts/generateSitemap.cjs",
+    "build:server": "vite build",
     "build": "npm run blog && npm run github && npm run sitemap && tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --quiet",
     "preview": "vite preview",
