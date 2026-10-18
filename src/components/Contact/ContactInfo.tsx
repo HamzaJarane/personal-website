@@ -39,7 +39,7 @@ const ContactInfo = () => {
                 <div css={tw`flex space-x-4`}>
                     <div css={tw`hover:scale-105`}>
                         <a
-                            href="/English.pdf"
+                            href="/Hamza_Jarane_English.pdf"
                             download
                             css={tw`transition-transform flex items-center space-x-2 px-6 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-[Oswald]`}
                         >
@@ -50,7 +50,7 @@ const ContactInfo = () => {
 
                     <div css={tw`hover:scale-105`}>
                         <a
-                            href="/Francais.pdf"
+                            href="/Hamza_Jarane_Francais.pdf"
                             download
                             css={tw`transition-transform flex items-center space-x-2 px-6 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-[Oswald]`}
                         >

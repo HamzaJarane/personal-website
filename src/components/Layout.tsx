@@ -6,9 +6,11 @@ import { AnimatePresence, motion, Transition, Variants } from 'framer-motion';
 import '@/App.css';
 import TopBar from './TopBar';
 import Footer from './Footer';
+import { useSeo } from '@/helpers/seo';
 
 export const Layout = ({ children, spaceTop = false, ignoreBlock = false }: { children?: React.ReactNode, spaceTop?: boolean, ignoreBlock?: boolean }) => {
     const location = useLocation();
+    useSeo();
     const pageVariants: Variants = {
         initial: {
             scale: 0.8,
